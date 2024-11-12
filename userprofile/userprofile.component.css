@@ -1,0 +1,141 @@
+/* Container for the profile section */
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the content horizontally */
+  justify-content: space-around; /* Align content to the top */
+  padding: 20px;
+  min-height: 100vh; /* Ensures the container takes up at least the full height of the screen */
+  background-color: #f4f4f4; /* Optional: Adding a background color for the profile section */
+}
+
+/* Ensure the section has enough spacing */
+.section {
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 1200px; /* Optional: Set a maximum width for large screens */
+  text-align: center; /* Center the text inside each section */
+}
+
+/* Page Header Section */
+.page-header {
+  width: 100%;
+  height: fit-content;
+  padding: 0;
+  background-color: #f4f4f4; /* Light background for the header */
+  margin-bottom: 30px;
+}
+
+.page-header-inner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.profile-pic {
+  margin-right: 20px; /* Space between profile pic and user info */
+}
+
+.profile-pic img {
+  border-radius: 50%; /* Makes the profile picture round */
+}
+
+.user-info {
+  text-align: center;
+  flex-grow: 1; /* Ensures user info takes up the remaining space */
+}
+
+.app-logos {
+  display: flex;
+  gap: 10px; /* Space between logos */
+}
+
+/* Cards container to make the cards display horizontally */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+  gap: 30px;
+  justify-content: center; /* Center the cards horizontally */
+  width: 100%;
+  max-width: 1200px; /* Optional: Set a max width for cards container */
+}
+
+/* Each card styling */
+.card {
+  width: 350px; /* You can adjust the width as per your design */
+  padding: 20px;
+  background-color: #fff;
+  border: 2px solid #FFB400; /* Yellow border */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease-in-out;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Card hover effect */
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Icons inside cards */
+.card-icon {
+  font-size: 40px;
+  color: #FFB400; /* Yellow color for the icon */
+  margin-bottom: 10px;
+}
+
+/* Text inside the card */
+.card h4 {
+  color: #333; /* Dark color for the heading */
+  font-size: 1.1em;
+  margin: 10px 0;
+}
+
+.card p {
+  color: #666; /* Darker gray for description text */
+  font-size: 0.9em;
+}
+
+/* Profile section styling */
+.profile-info p {
+  font-size: 1em;
+  color: #fea116;
+  margin-bottom: 5px;
+} 
+
+
+/* Responsive Design: Stack cards vertically on small screens */
+@media (max-width: 768px) {
+  .cards-container {
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center; /* Center cards vertically */
+  }
+
+  .page-header-inner {
+    flex-direction: column; /* Stack items vertically */
+  }
+
+  .d-flex {
+    flex-direction: column; /* Stack profile picture and user info vertically */
+    align-items: center; /* Center the items */
+  }
+
+  .profile-pic {
+    margin-bottom: 20px; /* Add space between the profile picture and the info */
+  }
+
+  .app-logos {
+    margin-top: 20px; /* Add space between logos and other elements */
+    justify-content: center; /* Center the logos horizontally */
+  }
+}
