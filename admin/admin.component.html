@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Module - TripSage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="admin.component.css">
+</head>
+
+<body>
+    <div class="wrapper" style="background-image: url(/assets/img/bg-reg.png);">
+        <!-- Header -->
+        <div id="header"></div>
+
+        <!-- Admin Module Section -->
+        <section class="container mt-5">
+            <h2 class="text-center mb-4">Admin Module</h2>
+
+            <!-- User Management -->
+            <div *ngIf="isAdmin()" class="mb-4">
+                <h3>User Management</h3>
+                <table class="table table-bordered" id="user-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users">
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>
+                                <button class="btn btn-danger" (click)="deleteUser(user.id)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-primary" (click)="openUserModal()">Add User</button>
+            </div>
+
+            <!-- Trip Management -->
+            <div *ngIf="isAdmin()" class="mb-4">
+                <h3>Trip Data Management</h3>
+                <table class="table table-bordered" id="trip-table">
+                    <thead>
+                        <tr>
+                            <th>Trip ID</th>
+                            <th>Destination</th>
+                            <th>Date</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let trip of trips">
+                            <td>{{ trip.tripId }}</td>
+                            <td>{{ trip.destination }}</td>
+                            <td>{{ trip.date }}</td>
+                            <td>{{ trip.price }}</td>
+                            <td>
+                                <button class="btn btn-danger" (click)="deleteTrip(trip.tripId)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-primary" (click)="openTripModal()">Add Trip</button>
+            </div>
+
+            <!-- Reports Section -->
+            <div *ngIf="isAdmin()">
+                <h3>Generate Reports</h3>
+                <button class="btn btn-success" (click)="generateReports()">Generate User Activity Report</button>
+                <div id="report-result" class="mt-3">{{ reportResult }}</div>
+            </div>
+        </section>
+
+        <!-- Add User Modal -->
+        <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addUserModalLabel">Add User</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form [formGroup]="userForm" (ngSubmit)="addUser()">
+                            <div class="form-group">
+                                <label for="user-name">Name</label>
+                                <input type="text" class="form-control" id="user-name" formControlName="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="user-email">Email</label>
+                                <input type="email" class="form-control" id="user-email" formControlName="email" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" (click)="addUser()">Add User</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Trip Modal -->
+        <div class="modal fade" id="addTripModal" tabindex="-1" role="dialog" aria-labelledby="addTripModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addTripModalLabel">Add Trip</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form [formGroup]="tripForm" (ngSubmit)="addTrip()">
+                            <div class="form-group">
+                                <label for="trip-destination">Destination</label>
+                                <input type="text" class="form-control" id="trip-destination" formControlName="destination" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="trip-date">Date</label>
+                                <input type="date" class="form-control" id="trip-date" formControlName="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="trip-price">Price ($)</label>
+                                <input type="number" class="form-control" id="trip-price" formControlName="price" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" (click)="addTrip()">Add Trip</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div id="footer"></div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="js/admin-module.js"></script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+.itinerary-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 1em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+  margin: 0.5em 0;
+}
+
+button {
+  margin: 1em 0.5em;
+}

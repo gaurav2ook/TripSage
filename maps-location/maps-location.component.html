@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maps and Location - TripSage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="maps-location.component.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Maps and Location Section -->
+    <section class="container mt-5">
+        <h2 class="text-center mb-4">Maps and Location</h2>
+        <div class="row">
+            <!-- Search Form -->
+            <div class="col-md-4">
+                <h3>Search Nearby Places</h3>
+                <form id="search-form">
+                    <div class="form-group">
+                        <label for="place-type">Type of Place</label>
+                        <select class="form-control" id="place-type">
+                            <option value="restaurant">Restaurant</option>
+                            <option value="hotel">Hotel</option>
+                            <option value="tourist_attraction">Tourist Attraction</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="radius">Search Radius (meters)</label>
+                        <input type="number" class="form-control" id="radius" value="500" min="100">
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="searchPlaces()">Search</button>
+                </form>
+            </div>
+
+            <!-- Map Display -->
+            <div class="col-md-8">
+                <h3>Map View</h3>
+                <div id="map" style="height: 500px; width: 100%;"></div>
+            </div>
+        </div>
+
+        <!-- Directions -->
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h3>Directions</h3>
+                <div id="directions-panel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/maps.js"></script>
+</body>
+</html>
