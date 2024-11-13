@@ -38,7 +38,7 @@
 
     
    <!-- Trip basic details -->
-   <section class="add-package-panel">
+   <section class="add-package-panel" style=" border: 4px solid #fea116;">
     <div class="input-group">
       <label for="current-location">Current Location</label>
       <input type="text" id="current-location" placeholder="Enter your current location" [(ngModel)]="currentLocation">
@@ -61,12 +61,12 @@
 
   <!-- Add Package Buttons -->
   <div class="container text-center py-5">
-    <h1 class="display-3 mb-3 animated slideInDown" style="color: #0f172b;">Add Services To Your Trip</h1>
+    <h1 class="display-5 mb-3 animated slideInDown" style="color: #ffffff; background-color: #0f172b; border: 4px solid #fea116;">Add Services To Your Trip</h1>
     <div class="button-group">
-      <button class="add-btn" (click)="togglePackageSection('hotels')">Add Hotels</button>
-      <button class="add-btn" (click)="togglePackageSection('trains')">Add Trains</button>
-      <button class="add-btn" (click)="togglePackageSection('flights')">Add Flights</button>
-      <button class="add-btn" (click)="togglePackageSection('restaurants')">Add Restaurants</button>
+      <button class="add-btn" (click)="togglePackageSection('hotels')" style=" border: 2px solid #0f172b">Add Hotels</button>
+      <button class="add-btn" (click)="togglePackageSection('trains')" style=" border: 2px solid #0f172b">Add Trains</button>
+      <button class="add-btn" (click)="togglePackageSection('flights')" style=" border: 2px solid #0f172b">Add Flights</button>
+      <button class="add-btn" (click)="togglePackageSection('restaurants')" style=" border: 2px solid #0f172b">Add Restaurants</button>
     </div>
   </div>
 

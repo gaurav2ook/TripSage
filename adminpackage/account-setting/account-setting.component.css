@@ -1,0 +1,65 @@
+/* Account Settings Section Styling */
+.account-settings-section {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  /* Account Settings Form */
+  .account-settings-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Form Fields Styling */
+  .account-settings-form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .account-settings-form .form-label {
+    font-size: 14px;
+    color: var(--dark);
+  }
+  
+  .account-settings-form .form-control {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  .account-settings-form .form-control:focus {
+    border-color: #fea116;
+  }
+  
+  /* Save Changes Button */
+  .account-settings-form button {
+    padding: 12px;
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .account-settings-form button:hover {
+    background-color: var(--dark);
+    color: var(--primary);
+  }
+  
+  /* Responsive Design for Smaller Screens */
+  @media (max-width: 768px) {
+    .account-settings-section {
+      padding: 15px;
+    }
+  
+    .account-settings-form {
+      padding: 0;
+    }
+  }
+  
