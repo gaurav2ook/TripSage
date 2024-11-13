@@ -263,7 +263,7 @@ body, html {
 .service-item:hover i,
 .service-item:hover h5,
 .service-item:hover p {
-    color: #FFFFFF !important;
+    color: #fea116 !important;
 }
 
 /*** Testimonial ***/
