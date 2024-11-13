@@ -1,0 +1,58 @@
+/* Account Settings Card Styles */
+.account-settings-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+  
+  .account-card {
+    width: 350px;
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #FFB400;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+  }
+  
+  .account-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .account-card h4 {
+    color: #333;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+  }
+  
+  .account-card .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .account-card label {
+    color: #fea116;
+  }
+  
+  .account-card .form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .account-card .btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #fea116;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .account-card .btn:hover {
+    background-color: #e57c10;
+  }
+  

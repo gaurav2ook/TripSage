@@ -1,0 +1,97 @@
+/* Container styling */
+.my-reviews {
+    padding: 40px 20px;
+    background-color: var(--light);
+    color: var(--dark);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(230, 148, 6, 0.985);
+}
+
+/* Reviews Section */
+.reviews-section {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Review Cards Container */
+.reviews-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Each review card styling */
+.review-card {
+    width: 350px;
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #FFB400;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+/* Review card hover effect */
+.review-card:hover {
+    transform: scale(1.05);
+}
+
+/* Review Info Styling */
+.review-info h4 {
+    color: #333;
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.review-info .rating {
+    font-size: 1em;
+    color: #FFB400;
+    margin: 5px 0;
+}
+
+.review-info .review-text {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.review-info .review-date {
+    font-size: 0.85em;
+    color: #888;
+}
+
+/* Review Actions (Edit/Delete buttons) */
+.review-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 8px 12px;
+    font-size: 0.9em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.btn-edit {
+    background-color: #00685E; /* Edit button color */
+}
+
+.btn-delete {
+    background-color: #fea116; /* Delete button color */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .reviews-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
