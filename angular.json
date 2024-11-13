@@ -103,19 +103,13 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [
-              "src/assets/lib/wow/wow.min.js",
-              "src/assets/lib/easing/easing.min.js",
-              "src/assets/lib/waypoints/waypoints.min.js",
-              "src/assets/lib/counterup/counterup.min.js",
-              "src/assets/lib/owlcarousel/owl.carousel.min.js",
-              "src/assets/lib/tempusdominus/js/moment.min.js",
-              "src/assets/lib/tempusdominus/js/moment-timezone.min.js",
-              "src/assets/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"
-            ]
+            "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "758d7660-21f2-4611-af36-4c6edc0b058e"
   }
 }
