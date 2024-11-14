@@ -43,39 +43,48 @@
         <div class="account-settings-form" style="background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
             <form [formGroup]="accountSettingsForm" (ngSubmit)="onSubmit()">
                 
-                <!-- Full Name Field -->
-                <div class="form-group">
-                    <label for="fullName" class="form-label">Full Name</label>
-                    <input type="text" class="form-control" id="fullName" formControlName="fullName" placeholder="Enter your full name" required>
+                <div class="form-group row" style="display: flex; gap: 20px;">
+                    <!-- Full Name Field -->
+                    <div class="col" style="flex: 1;">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="fullName" formControlName="fullName" placeholder="Enter your full name" required>
+                    </div>
+                
+                    <!-- Email Field -->
+                    <div class="col" style="flex: 1;">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter your email address" required>
+                    </div>
                 </div>
-
-                <!-- Email Field -->
-                <div class="form-group">
-                    <label for="email" class="form-label">Email Address</label>
-                    <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter your email address" required>
-                </div>
-
+                
+            
+                
                 <!-- Profile Picture Upload -->
                 <div class="form-group">
                     <label for="profilePicture" class="form-label">Profile Picture</label>
                     <input type="file" class="form-control" id="profilePicture" formControlName="profilePicture">
                 </div>
 
-                <!-- Role Selection -->
-                <div class="form-group">
-                    <label for="role" class="form-label">Role</label>
-                    <select id="role" class="form-control" formControlName="role">
-                        <option value="" disabled selected>Select your role</option>
-                        <option value="Admin">Admin</option>
-                        <option value="User">User</option>
-                    </select>
+                <div class="form-group row" style="display: flex; gap: 20px;">
+                    <!-- Role Selection -->
+                    <div class="col" style="flex: 1;">
+                        <label for="role" class="form-label">Role</label>
+                        <select id="role" class="form-control" formControlName="role">
+                            <option value="" disabled selected class="placeholder-option" >Select your role</option>
+                            <option value="Admin">Admin</option>
+                            <option value="User">User</option>
+                        </select>
+                    </div>
+                    
+                    
+                
+                    <!-- Phone Number Field -->
+                    <div class="col" style="flex: 1;">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone" formControlName="phone" placeholder="Enter your phone number">
+                    </div>
                 </div>
-
-                <!-- Phone Number Field -->
-                <div class="form-group">
-                    <label for="phone" class="form-label">Phone Number</label>
-                    <input type="tel" class="form-control" id="phone" formControlName="phone" placeholder="Enter your phone number">
-                </div>
+                
 
                 <!-- Password Field -->
                 <div class="form-group">
