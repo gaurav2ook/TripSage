@@ -41,19 +41,12 @@ export class LoginComponent {
     const { email, password } = this.loginForm.value;
 
     // Call AuthService to handle login
-    this.authService.login(email, password).subscribe({
-      next: (response) => {
-        console.log('Login successful:', response);
-      
-        // Redirect to user or admin profile based on role
-        
+    this.authService.login(email, password).subscribe((response: any) => {
+        if(response.status === "success") {
           this.router.navigate(['/']);
-  
-      },
-      error: (error) => {
-        this.errorMessage = error?.error?.message ||   'Invalid email or password. Please try again.';
-        console.error('Login error:', error);
-      }
+        } else {
+          this.errorMessage = response.data || 'Login failed. Please try again.';
+        }
     });
   }
 

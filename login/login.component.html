@@ -22,6 +22,11 @@
                 <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
                     <h3>Login Form</h3>
 
+                    <!-- Error Message Display -->
+                    <div *ngIf="isSubmitted && errorMessage" class="alert alert-danger">
+                        {{ errorMessage }}
+                    </div>
+
                     <!-- Email Input Field -->
                     <div class="form-wrapper">
                         <input type="text" placeholder="Email Address" class="form-control" formControlName="email">
@@ -37,11 +42,6 @@
                     <button type="submit" (click)="onLogin()">Login
                         <i class="bi bi-arrow-right"></i>
                     </button>
-
-                    <!-- Error Message Display -->
-                    <div *ngIf="isSubmitted && errorMessage" class="alert alert-danger">
-                        {{ errorMessage }}
-                    </div>
 
                     <!-- Register Link -->
                     <p style="text-align: center; margin-top: 15px; color: #091c2e;">
