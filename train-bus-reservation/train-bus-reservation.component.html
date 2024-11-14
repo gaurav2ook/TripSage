@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train/Bus Reservation - TripSage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="train-bus-reservation.component.css">
+</head>
+<body>
+
+<div class="wrapper" style="background-image: url(/assets/img/bg-reg.png);">
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Train/Bus Reservation Section -->
+    <section class="container mt-5">
+        <h2 class="text-center mb-4">Train/Bus Reservation</h2>
+        <div class="row">
+            <!-- Search Form -->
+            <div class="col-md-4">
+                <h3>Search for Trains/Buses</h3>
+                <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+                    <div class="form-group">
+                        <label for="departure-location">Departure Location</label>
+                        <input type="text" class="form-control" id="departure-location" formControlName="departureLocation" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="arrival-location">Arrival Location</label>
+                        <input type="text" class="form-control" id="arrival-location" formControlName="arrivalLocation" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="travel-date">Travel Date</label>
+                        <input type="date" class="form-control" id="travel-date" formControlName="travelDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="travel-type">Travel Type</label>
+                        <select class="form-control" id="travel-type" formControlName="travelType">
+                            <option value="train">Train</option>
+                            <option value="bus">Bus</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+
+            <!-- Available Reservations -->
+            <div class="col-md-8">
+                <h3>Available Trains/Buses</h3>
+                <div *ngIf="reservations.length > 0; else noResults" class="list-group">
+                    <button type="button" class="list-group-item list-group-item-action"
+                            *ngFor="let reservation of reservations"
+                            (click)="selectReservation(reservation)">
+                        <h5>{{ reservation.travelType | titlecase }}: {{ reservation.departure }} to {{ reservation.arrival }}</h5>
+                        <p>Date: {{ reservation.travelDate }} | Price: ${{ reservation.price }}</p>
+                    </button>
+                </div>
+                <ng-template #noResults>
+                    <p class="text-muted">No available trains or buses. Please search to view options.</p>
+                </ng-template>
+            </div>
+        </div>
+
+        <!-- Reservation History -->
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h3>Reservation History</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Travel Type</th>
+                            <th>Departure</th>
+                            <th>Arrival</th>
+                            <th>Travel Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let history of reservationHistory">
+                            <td>{{ history.travelType | titlecase }}</td>
+                            <td>{{ history.departure }}</td>
+                            <td>{{ history.arrival }}</td>
+                            <td>{{ history.travelDate }}</td>
+                            <td>{{ history.status }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div class="modal fade" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true"
+         *ngIf="selectedReservation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reservationModalLabel">Reservation Details</h5>
+                    <button type="button" class="close" (click)="closeModal()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form (ngSubmit)="confirmReservation(paymentMethod.value)">
+                        <div class="form-group">
+                            <label>Travel Type</label>
+                            <input type="text" class="form-control" [value]="selectedReservation.travelType" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Departure</label>
+                            <input type="text" class="form-control" [value]="selectedReservation.departure" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Arrival</label>
+                            <input type="text" class="form-control" [value]="selectedReservation.arrival" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Total Price</label>
+                            <input type="number" class="form-control" [value]="selectedReservation.price" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="payment-method">Payment Method</label>
+                            <select class="form-control" #paymentMethod>
+                                <option value="credit-card">Credit Card</option>
+                                <option value="debit-card">Debit Card</option>
+                                <option value="paypal">PayPal</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success">Confirm Reservation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</div>
+</body>
+</html>
+

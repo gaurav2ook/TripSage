@@ -1,0 +1,51 @@
+<div class="container">
+    <h2>Trip Details</h2>
+    
+    <div class="detail">
+      <h3>Basic Trip Information</h3>
+      <p>Current Location: {{ tripDetails.currentLocation }}</p>
+      <p>Destination: {{ tripDetails.destination }}</p>
+      <p>Travel Date: {{ tripDetails.travelDate }}</p>
+      <p>Number of People: {{ tripDetails.numberOfPeople }}</p>
+    </div>
+  
+    <div class="detail">
+      <h3>Selected Services</h3>
+      
+      <!-- Display selected hotels -->
+      <div *ngIf="tripDetails.hotels?.length">
+        <h4>Hotels</h4>
+        <ul>
+          <li *ngFor="let hotel of tripDetails.hotels">{{ hotel.name }} - ${{ hotel.price }}/night</li>
+        </ul>
+      </div>
+  
+      <!-- Display selected trains -->
+      <div *ngIf="tripDetails.trains?.length">
+        <h4>Trains</h4>
+        <ul>
+          <li *ngFor="let train of tripDetails.trains">{{ train.name }} - ${{ train.price }}</li>
+        </ul>
+      </div>
+  
+      <!-- Display selected flights -->
+      <div *ngIf="tripDetails.flights?.length">
+        <h4>Flights</h4>
+        <ul>
+          <li *ngFor="let flight of tripDetails.flights">{{ flight.name }} - ${{ flight.price }}</li>
+        </ul>
+      </div>
+  
+      <!-- Display selected restaurants -->
+      <div *ngIf="tripDetails.restaurants?.length">
+        <h4>Restaurants</h4>
+        <ul>
+          <li *ngFor="let restaurant of tripDetails.restaurants">{{ restaurant.name }} - ${{ restaurant.price }}</li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- Proceed to payment button -->
+    <button (click)="proceedToPayment()">Proceed to Payment</button>
+  </div>
+  
