@@ -1,0 +1,80 @@
+<div class="admin-profile container">
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 p-0"
+        style="background-image: url(assets/img/0f172b.png); border: 4px solid #fea116;">
+        <div class="container-fluid page-header-inner py-5">
+            <div class="container text-center pb-5">
+                <div class="d-flex justify-content-between align-items-center">
+                    <!-- Left Side: Profile Picture -->
+                    <div class="profile-pic" style="border: 2px solid #fea116; padding: 10px; border-radius: 50%;">
+                        <img src="assets/img/about-1.jpg" alt="Admin Profile Picture" class="rounded-circle" width="200"
+                            height="200">
+                    </div>
+
+                    <!-- Center: Admin Information -->
+                    <div class="admin-info"
+                        style="border: 2px solid #fea116; padding: 10px; border-radius: 10px; max-width: 400px;">
+                        <h1 class="text-white mb-3 animated slideInDown">Admin Profile</h1>
+                        <div class="profile-info" style="text-align: center;">
+                            <p style="color: #fea116;"><strong>Name:</strong> Admin Name</p>
+                            <p style="color: #fea116;"><strong>Email:</strong> admin&#64;example.com</p>
+                            <p style="color: #fea116;"><strong>Role:</strong> Administrator</p>
+                        </div>
+                    </div>
+
+                    <!-- Right Side: Application Logo -->
+                    <div class="app-logo" style="border: 2px solid #fea116; padding: 10px; border-radius: 10px;">
+                        <img src="assets/img/logo2.jpg" alt="Application Logo" width="250" height="100">
+                    </div>
+                </div>
+            </div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase" style="text-align: center;">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/adminprofile">Back to profile</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page"><a href="/aboutus">About</a></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <div class="container">
+        <h1 class="display-5 mb-3 animated slideInDown"
+            style="color: #ffffff; background-color: #0f172b; border: 3px solid #fea116; font-size: 250%; text-align: center;">User
+            Bookings</h1>
+
+        <!-- Bookings Table -->
+        <div *ngIf="!isLoading && bookings.length > 0">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>User Name</th>
+                        <th>Booking Type</th>
+                        <th>Booking Details</th>
+                        <th>Booking Date</th>
+                        <th>Booking Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let booking of bookings">
+                        <td>{{ booking.userName }}</td>
+                        <td>{{ booking.bookingType }}</td>
+                        <td>{{ booking.details }}</td>
+                        <td>{{ booking.bookingDate | date:'shortDate' }}</td>
+                        <td>
+                            <span [ngClass]="{'status-completed': booking.bookingStatus === 'Completed', 'status-cancelled': booking.bookingStatus === 'Cancelled'}">
+                                {{ booking.bookingStatus }}
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- No Bookings Found -->
+        <div *ngIf="!isLoading && bookings.length === 0">
+            <p>No bookings available at the moment.</p>
+        </div>
+    </div>
+</div>
