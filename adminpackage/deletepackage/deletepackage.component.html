@@ -1,103 +1,141 @@
 <div class="admin-profile container">
-    <!-- Page Header Start -->
-    <div class="container-fluid page-header mb-5 p-0" style="background-image: url(assets/img/0f172b.png); border: 4px solid #fea116;">
-        <div class="container-fluid page-header-inner py-5">
-            <div class="container text-center pb-5">
-                <div class="d-flex justify-content-between align-items-center">
-                    <!-- Left Side: Profile Picture -->
-                    <div class="profile-pic" style="border: 2px solid #fea116; padding: 10px; border-radius: 50%;">
-                        <img src="assets/img/about-1.jpg" alt="Admin Profile Picture" class="rounded-circle" width="200" height="200">
-                    </div>
+  <!-- Page Header Start -->
+  <div class="container-fluid page-header mb-5 p-0"
+    style="background-image: url(assets/img/0f172b.png); border: 4px solid #fea116;">
+    <div class="container-fluid page-header-inner py-5">
+      <div class="container text-center pb-5">
+        <div class="d-flex justify-content-between align-items-center">
+          <!-- Left Side: Profile Picture -->
+          <div class="profile-pic" style="border: 2px solid #fea116; padding: 10px; border-radius: 50%;">
+            <img src="assets/img/about-1.jpg" alt="Admin Profile Picture" class="rounded-circle" width="200"
+              height="200">
+          </div>
 
-                    <!-- Center: Admin Information -->
-                    <div class="admin-info" style="border: 2px solid #fea116; padding: 10px; border-radius: 10px; max-width: 400px;">
-                        <h1 class="text-white mb-3 animated slideInDown">Admin Profile</h1>
-                        <div class="profile-info text-center">
-                            <p style="color: #fea116;"><strong>Name:</strong> Admin Name</p>
-                            <p style="color: #fea116;"><strong>Email:</strong> admin&#64;example.com</p>
-                            <p style="color: #fea116;"><strong>Role:</strong> Administrator</p>
-                        </div>
-                    </div>
-
-                    <!-- Right Side: Application Logo -->
-                    <div class="app-logo" style="border: 2px solid #fea116; padding: 10px; border-radius: 10px;">
-                        <img src="assets/img/logo2.jpg" alt="Application Logo" width="250" height="100">
-                    </div>
-                </div>
+          <!-- Center: Admin Information -->
+          <div class="admin-info"
+            style="border: 2px solid #fea116; padding: 10px; border-radius: 10px; max-width: 400px;">
+            <h1 class="text-white mb-3 animated slideInDown">Admin Profile</h1>
+            <div class="profile-info text-center">
+              <p style="color: #fea116;"><strong>Name:</strong> Admin Name</p>
+              <p style="color: #fea116;"><strong>Email:</strong> admin&#64;example.com</p>
+              <p style="color: #fea116;"><strong>Role:</strong> Administrator</p>
             </div>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb justify-content-center text-uppercase" style="text-align: center;">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="/adminprofile">Back to Profile</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page"><a href="/aboutus">About</a></li>
-                </ol>
-            </nav>
+          </div>
+
+          <!-- Right Side: Application Logo -->
+          <div class="app-logo" style="border: 2px solid #fea116; padding: 10px; border-radius: 10px;">
+            <img src="assets/img/logo2.jpg" alt="Application Logo" width="250" height="100">
+          </div>
         </div>
+      </div>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb justify-content-center text-uppercase" style="text-align: center;">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item"><a href="/adminprofile">Back to Profile</a></li>
+          <li class="breadcrumb-item text-white active" aria-current="page"><a href="/aboutus">About</a></li>
+        </ol>
+      </nav>
     </div>
-    <!-- Page Header End -->
+  </div>
+  <!-- Page Header End -->
 
-    <!-- Packages Deletion Section -->
-    <div *ngIf="showHotelSection" class="package-section">
-        <div class="container-fluid page-header mb-5 p-0" style="background-image: url(assets/img/room-1.jpg); background-size: cover; background-position: center;">
-            <div class="container-fluid page-header-inner py-3" style="background: rgba(0, 0, 0, 0.5);">
-                <div class="container text-center py-3">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">Packages</h1>
-                </div>
-            </div>
+  <!-- Packages Deletion Section -->
+  <div *ngIf="showHotelSection" class="package-section">
+    <div class="container-fluid page-header mb-5 p-0"
+      style="background-image: url(assets/img/room-1.jpg); background-size: cover; background-position: center;">
+      <div class="container-fluid page-header-inner py-3" style="background: rgba(0, 0, 0, 0.5);">
+        <div class="container text-center py-3">
+          <h1 class="display-3 text-white mb-3 animated slideInDown">Manage Packages</h1>
         </div>
+      </div>
+    </div>
 
-        <!-- Packages List Section -->
-        <div class="packages-list-section">
-            <h3 class="text-center mb-4" style="color: #0f172b;">Available Packages</h3>
-
-            <!-- Display Error Message if any -->
-            <div *ngIf="errorMessage" class="alert alert-danger text-center" role="alert">
-                {{ errorMessage }}
+    <!-- Packages List Section -->
+    <div class="packages-list-section">
+      <h3 class="display-5 text-center mb-4" style="color: #0f172b;">Available Packages</h3>
+      <div class="container">
+        <!-- Packages Table -->
+        <div class="container-fluid page-header mb-2 p-0" style="background-color: #0f172b;">
+          <div class="container-fluid page-header-inner"
+            style="background: rgba(4, 13, 79, 0.555); justify-content: center;">
+            <div class="container text-center py-3">
+              <h1 class="display-5 text-white mb-3 animated slideInDown">Trip Packages</h1>
             </div>
+          </div>
+        </div>
+        <section class="package-results">
+          <div *ngFor="let package of packageResults" class="result">
+            <img [src]="package.image" alt="Package Image" class="package-image">
+            <div class="package-details">
+              <h3>{{ package.name }}</h3>
+              <p>Location: {{ package.location }}</p>
+              <p>Duration: {{ package.duration }} days</p>
+              <p>Description: {{ package.description }}</p>
+              <div class="price">${{ package.price }}</div>
+            </div>
+            <div class="actions">
+              <button class="pay-now-btn" (click)="deletePackage(package.id)">Delete Package</button>
+            </div>
+          </div>
+        </section>
 
-            <div class="container">
-            
-                <!-- Display Error Message if any -->
-                <div *ngIf="errorMessage" class="alert alert-danger text-center" role="alert">
-                  {{ errorMessage }}
-                </div>
-            
-                <!-- Packages Table -->
-                <div *ngIf="packages.length > 0; else noPackages">
-                  <table class="table table-bordered">
-                    <thead>
-                      <tr>
-                        <th>Package Name</th>
-                        <th>ID</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Duration</th>
-                        <th>Destination</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let package of packages">
-                        <td>{{ package.name }}</td>
-                        <td>{{ package.id }}</td>
-                        <td>{{ package.description }}</td>
-                        <td>${{ package.price }}</td>
-                        <td>{{ package.duration }}</td>
-                        <td>{{ package.destination }}</td>
-                        <td>
-                          <button class="delete-btn" (click)="deletePackage(package.id)">Delete</button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-            
-                <!-- No Packages Message -->
-                <ng-template #noPackages>
-                  <div class="text-center mt-4">
-                    <p>No packages available to display.</p>
-                  </div>
-                </ng-template>
+        <!-- Hotel Section -->
+        <div class="container-fluid page-header mb-2 p-0" style="background-color: #0f172b;">
+          <div class="container-fluid page-header-inner"
+              style="background: rgba(4, 13, 79, 0.555); justify-content: center;">
+              <div class="container text-center py-3">
+                  <h1 class="display-5 text-white mb-3 animated slideInDown">Hotel Packages</h1>
               </div>
+          </div>
+        </div>
+        <section class="hotel-results">
+          <div *ngFor="let hotel of hotelResults" class="result">
+            <img [src]="hotel.image" alt="Hotel Image" class="hotel-image">
+            <div class="hotel-details">
+              <h3>{{ hotel.name }}</h3>
+              <p>Location: {{ hotel.location }}</p>
+              <p>Rating: {{ hotel.rating }}</p>
+              <p>Amenities: {{ hotel.amenities }}</p>
+              <div class="price">${{ hotel.price }}/night</div>
+            </div>
+            <div class="actions">
+              <button class="pay-now-btn" (click)="deleteHotel(hotel.id)">Delete Hotel</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Restaurant Section -->
+        <div class="container-fluid page-header mb-2 p-0" style="background-color: #0f172b;">
+          <div class="container-fluid page-header-inner"
+              style="background: rgba(4, 13, 79, 0.555); justify-content: center;">
+              <div class="container text-center py-3">
+                  <h1 class="display-5 text-white mb-3 animated slideInDown">Restaurant Packages</h1>
+              </div>
+          </div>
+        </div>
+        <section class="restaurant-results">
+          <div *ngFor="let restaurant of restaurantResults" class="result">
+            <img [src]="restaurant.image" alt="Restaurant Image" class="restaurant-image">
+            <div class="restaurant-details">
+              <h3>{{ restaurant.name }}</h3>
+              <p>Location: {{ restaurant.location }}</p>
+              <p>Cuisine: {{ restaurant.cuisine }} | ⭐️ {{ restaurant.rating }}</p>
+              <p>Features: {{ restaurant.features }}</p>
+              <div class="price">${{ restaurant.price }}</div>
+            </div>
+            <div class="actions">
+              <button class="pay-now-btn" (click)="deleteRestaurant(restaurant.id)">Delete Restaurant</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- No Packages Message -->
+        <ng-template #noPackages>
+          <div class="text-center mt-4">
+            <p>No packages available to display.</p>
+          </div>
+        </ng-template>
+      </div>
     </div>
+  </div>
 </div>
