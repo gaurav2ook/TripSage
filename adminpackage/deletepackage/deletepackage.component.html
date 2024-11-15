@@ -52,89 +52,40 @@
 
     <!-- Packages List Section -->
     <div class="packages-list-section">
-      <h3 class="display-5 text-center mb-4" style="color: #0f172b;">Available Packages</h3>
+      <h3 class="display-5 text-center mb-5" style="color: #0f172b;">Available Packages</h3>
       <div class="container">
+
         <!-- Packages Table -->
-        <div class="container-fluid page-header mb-2 p-0" style="background-color: #0f172b;">
-          <div class="container-fluid page-header-inner"
-            style="background: rgba(4, 13, 79, 0.555); justify-content: center;">
-            <div class="container text-center py-3">
-              <h1 class="display-5 text-white mb-3 animated slideInDown">Trip Packages</h1>
-            </div>
-          </div>
+        <div *ngIf="packageResults.length > 0">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Package ID</th>
+                <th>Package Type</th>
+                <th>Package Details</th>
+                <th>Package Created Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let package of packageResults">
+                <td>{{ package.id }}</td>
+                <td>{{ package.type }}</td>
+                <td>{{ package.name }} - {{ package.location }} - {{ package.price | currency }}</td>
+                <td>{{ package.createdDate | date: 'shortDate' }}</td>
+                <td>
+                  <button class="btn btn-danger" (click)="deletePackage(package.id)">Delete Package</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <section class="package-results">
-          <div *ngFor="let package of packageResults" class="result">
-            <img [src]="package.image" alt="Package Image" class="package-image">
-            <div class="package-details">
-              <h3>{{ package.name }}</h3>
-              <p>Location: {{ package.location }}</p>
-              <p>Duration: {{ package.duration }} days</p>
-              <p>Description: {{ package.description }}</p>
-              <div class="price">${{ package.price }}</div>
-            </div>
-            <div class="actions">
-              <button class="pay-now-btn" (click)="deletePackage(package.id)">Delete Package</button>
-            </div>
-          </div>
-        </section>
-
-        <!-- Hotel Section -->
-        <div class="container-fluid page-header mb-2 p-0" style="background-color: #0f172b;">
-          <div class="container-fluid page-header-inner"
-              style="background: rgba(4, 13, 79, 0.555); justify-content: center;">
-              <div class="container text-center py-3">
-                  <h1 class="display-5 text-white mb-3 animated slideInDown">Hotel Packages</h1>
-              </div>
-          </div>
-        </div>
-        <section class="hotel-results">
-          <div *ngFor="let hotel of hotelResults" class="result">
-            <img [src]="hotel.image" alt="Hotel Image" class="hotel-image">
-            <div class="hotel-details">
-              <h3>{{ hotel.name }}</h3>
-              <p>Location: {{ hotel.location }}</p>
-              <p>Rating: {{ hotel.rating }}</p>
-              <p>Amenities: {{ hotel.amenities }}</p>
-              <div class="price">${{ hotel.price }}/night</div>
-            </div>
-            <div class="actions">
-              <button class="pay-now-btn" (click)="deleteHotel(hotel.id)">Delete Hotel</button>
-            </div>
-          </div>
-        </section>
-
-        <!-- Restaurant Section -->
-        <div class="container-fluid page-header mb-2 p-0" style="background-color: #0f172b;">
-          <div class="container-fluid page-header-inner"
-              style="background: rgba(4, 13, 79, 0.555); justify-content: center;">
-              <div class="container text-center py-3">
-                  <h1 class="display-5 text-white mb-3 animated slideInDown">Restaurant Packages</h1>
-              </div>
-          </div>
-        </div>
-        <section class="restaurant-results">
-          <div *ngFor="let restaurant of restaurantResults" class="result">
-            <img [src]="restaurant.image" alt="Restaurant Image" class="restaurant-image">
-            <div class="restaurant-details">
-              <h3>{{ restaurant.name }}</h3>
-              <p>Location: {{ restaurant.location }}</p>
-              <p>Cuisine: {{ restaurant.cuisine }} | ⭐️ {{ restaurant.rating }}</p>
-              <p>Features: {{ restaurant.features }}</p>
-              <div class="price">${{ restaurant.price }}</div>
-            </div>
-            <div class="actions">
-              <button class="pay-now-btn" (click)="deleteRestaurant(restaurant.id)">Delete Restaurant</button>
-            </div>
-          </div>
-        </section>
 
         <!-- No Packages Message -->
-        <ng-template #noPackages>
-          <div class="text-center mt-4">
-            <p>No packages available to display.</p>
-          </div>
-        </ng-template>
+        <div *ngIf="packageResults.length === 0">
+          <p class="text-center">No packages available to display.</p>
+        </div>
+
       </div>
     </div>
   </div>
