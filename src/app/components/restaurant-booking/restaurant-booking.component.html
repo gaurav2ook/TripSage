@@ -1,0 +1,62 @@
+<div class="wrapper" style="background-image: url(assets/img/);">
+<!-- restaurant-booking.component.html -->
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 p-0" style="background-image: url(assets/img/Restaurant3.png);">
+  <div class="container-fluid page-header-inner py-5">
+      <div class="container text-center pb-5">
+          <h1 class="display-3 text-white mb-3 animated slideInDown">Restaurants</h1>
+          <nav aria-label="breadcrumb">
+              <ol class="breadcrumb justify-content-center text-uppercase">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+              </ol>
+          </nav>
+      </div>
+  </div>
+</div>
+<!-- Page Header End -->
+  
+  <section class="search-panel">
+    <div class="input-group">
+      <label for="location">Location</label>
+      <input type="text" id="location" placeholder="City or Area" [(ngModel)]="location">
+    </div>
+    <div class="input-group">
+      <label for="date">Date</label>
+      <input type="date" id="date" [(ngModel)]="date">
+    </div>
+    <div class="input-group">
+      <label for="time">Time</label>
+      <input type="time" id="time" [(ngModel)]="time">
+    </div>
+    <div class="input-group">
+      <label for="guests">Guests</label>
+      <select id="guests" [(ngModel)]="guestCount">
+        <option *ngFor="let option of guestOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <label for="cuisine">Cuisine</label>
+      <select id="cuisine" [(ngModel)]="cuisine">
+        <option *ngFor="let option of cuisineOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+    <button class="search-btn" (click)="findRestaurants()">Find Restaurants</button>
+  </section>
+  
+  <section class="restaurant-results">
+    <div class="no-data" *ngIf="restaurantResults.length === 0">No data found</div>
+    <div *ngFor="let restaurant of restaurantResults" class="result">
+      <img [src]="restaurant.image" alt="Restaurant Image" class="restaurant-image">
+      <div class="restaurant-details">
+        <h3>{{ restaurant.name }}</h3>
+        <p>Location: {{ restaurant.location }}</p>
+        <p>Cuisine: {{ restaurant.cuisine }} | {{ restaurant.price }} | ⭐️ {{ restaurant.rating }}</p>
+        <p>Features: {{ restaurant.features }}</p>
+      </div>
+      <button class="book-btn" (click)="reserveTable(restaurant)">Reserve Table</button>
+    </div>
+  </section>
+</div>
+  

@@ -1,0 +1,95 @@
+/* Ensure the body and html take full height and apply flexbox */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center;     /* Vertically center */
+    background-color: #f4f4f4; /* Optional: Set a background color */
+  }
+  
+  /* Account Settings Section */
+  .account-settings-section {
+    background: #0f172b;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px #fea116;
+    width: 100%;
+    max-width: 600px; /* Set a maximum width for the form */
+    box-sizing: border-box;
+    margin: 0 auto; /* Center horizontally */
+  }
+  
+  /* Account Settings Form */
+  .account-settings-form {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form Fields Styling */
+  .account-settings-form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .account-settings-form .form-label {
+    font-size: 14px;
+    color: #0f172b;
+  }
+  
+  .account-settings-form .form-control {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #fea116;
+    background-color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  .account-settings-form .form-control:focus {
+    border-color: #fea116;
+  }
+  
+  /* Role Selection Placeholder Styling */
+  .account-settings-form select.form-control option[disabled] {
+    color: #a9a9a9; /* Placeholder color */
+  }
+  
+  /* Save Changes Button */
+  .account-settings-form button {
+    padding: 12px;
+    background-color: #0f172b;
+    color: #fea116;
+    border-color: 1px solid #fea116;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .account-settings-form button:hover {
+    background-color: #fea116;
+    color: #ffffff;
+    border-color: #0f172b;
+  }
+  
+  /* Profile Picture Field */
+  .account-settings-form #profilePicture {
+    border: 1px solid #fea116;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  
+  /* Responsive Design for Smaller Screens */
+  @media (max-width: 768px) {
+    .account-settings-section {
+        padding: 15px;
+    }
+  
+    .account-settings-form {
+        padding: 15px;
+    }
+  }

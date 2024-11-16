@@ -1,0 +1,91 @@
+
+<div class="account-settings container">
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 p-0" style="background-image: url(assets/img/0f172b.png); border: 4px solid #fea116;">
+        <div class="container-fluid page-header-inner py-5">
+            <div class="container text-center pb-5">
+                <div class="d-flex justify-content-between align-items-center">
+                    <!-- Left Side: Profile Picture -->
+                    <div class="profile-pic" style="border: 2px solid #fea116; padding: 10px; border-radius: 50%;">
+                        <img src="assets/img/about-1.jpg" alt="Admin Profile Picture" class="rounded-circle" width="200" height="200">
+                    </div>
+
+                    <!-- Center: Admin Information -->
+                    <div class="admin-info" style="border: 2px solid #fea116; padding: 10px; border-radius: 10px; max-width: 400px;">
+                        <h1 class="text-white mb-3 animated slideInDown">Account Settings</h1>
+                        <div class="profile-info" style="text-align: center;">
+                            <p style="color: #fea116;"><strong>Name:</strong> {{adminName}}</p>
+                            <p style="color: #fea116;"><strong>Email:</strong> {{adminEmail}}</p>
+                            <p style="color: #fea116;"><strong>Role:</strong> {{adminRole}}</p>
+                        </div>
+                    </div>
+
+                    <!-- Right Side: Application Logo -->
+                    <div class="app-logo" style="border: 2px solid #fea116; padding: 10px; border-radius: 10px;">
+                        <img src="assets/img/logo2.jpg" alt="Application Logo" width="250" height="100">
+                    </div>
+                </div>
+            </div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase" style="text-align: center;">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page"><a href="/adminprofile">Back To Profile</a></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Account Settings Section -->
+    <div class="account-settings-section section" style="max-width: 700px; margin: 0 auto;">
+        <h3 style="color: #ffffff; text-align: center;">Update Your Account</h3>
+
+        <!-- Account Settings Form -->
+        <div class="account-settings-form" style="background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+            <form [formGroup]="accountSettingsForm" (ngSubmit)="onSubmit()">
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter your email address" [ngModel]="adminEmail">
+                </div>
+
+                <!-- Role Selection -->
+                <div class="form-group">
+                    <label for="role" class="form-label">Role</label>
+                    <select id="role" class="form-control" formControlName="role" [ngModel]="adminRole">
+                        <option value="admin">Admin</option>
+                        <option value="user">User</option>
+                    </select>
+                </div>
+                
+                <!-- Full Name Field -->
+                <div class="form-group">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="fullName" formControlName="fullName" placeholder="Enter your full name" required [ngModel]="adminName">
+                </div>
+
+                <!-- Phone Number Field -->
+                <div class="form-group">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="tel" class="form-control" id="phone" formControlName="phone" placeholder="Enter your phone number" [ngModel]="adminMobileNumber">
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter a new password">
+                </div>
+
+                <!-- Confirm Password Field -->
+                <div class="form-group">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm your password">
+                </div>
+
+                <!-- Save Changes Button -->
+                <button type="submit" class="btn btn-primary" [disabled]="accountSettingsForm.invalid">Save Changes</button>
+            </form>
+        </div>
+    </div>
+</div>

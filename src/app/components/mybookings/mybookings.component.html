@@ -1,0 +1,49 @@
+<div class="my-bookings container">
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 p-0" style="background-image: url('assets/img/0f172b.png'); border: 4px solid #fea116;">
+        <div class="container-fluid page-header-inner py-5">
+            <div class="container text-center pb-5">
+                <h1 class="text-white mb-3 animated slideInDown">My Bookings</h1>
+                <p class="text-white">View details of your trip bookings here.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <div class="container table-box">
+        <h2 class="mb-3" style="text-align: center; color: #0f172b;">Your Bookings</h2>
+
+        <!-- Bookings Table -->
+        <div *ngIf="!isLoading && bookings.length > 0">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Booking Type</th>
+                        <th>Details</th>
+                        <th>Booking Date</th>
+                        <th>Booking Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let booking of bookings">
+                        <td>{{ booking.id }}</td>
+                        <td>{{ booking.bookingType }}</td>
+                        <td>{{ booking.details }}</td>
+                        <td>{{ booking.bookingDate | date: 'shortDate' }}</td>
+                        <td>
+                            <!-- Conditionally display the booking status -->
+                            <span *ngIf="booking.bookingStatus !== 'Pending'">{{ booking.bookingStatus }}</span>
+                            <span *ngIf="booking.bookingStatus === 'Pending'" class="text-warning">Pending</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- No Bookings Found -->
+        <div *ngIf="!isLoading && bookings.length === 0">
+            <p style="text-align: center;">No bookings available at the moment.</p>
+        </div>
+    </div>
+</div>

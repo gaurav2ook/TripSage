@@ -1,0 +1,63 @@
+/* Page Header Styling */
+.page-header {
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+  }
+  
+  /* Table Container Styling */
+  .table-box {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Table Styling */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+  }
+  
+  .table th, .table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table th {
+    background-color: #f4f4f4;
+    color: #0f172b;
+  }
+  
+  .table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Booking Status Styling */
+  .status-completed {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .status-cancelled {
+    color: red;
+    font-weight: bold;
+  }
+  
+  /* Button Styling */
+  .btn-danger {
+    background-color: #fea116;
+    border: none;
+    color: rgb(122, 77, 77);
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-danger:hover {
+    background-color: #ff1900;
+  }

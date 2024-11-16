@@ -1,0 +1,119 @@
+<div class="admin-profile container">
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 p-0" style="background-image: url(assets/img/0f172b.png); border: 4px solid #fea116;">
+        <div class="container-fluid page-header-inner py-5">
+            <div class="container text-center pb-5">
+                <div class="d-flex justify-content-between align-items-center">
+                    <!-- Left Side: Profile Picture -->
+                    <div class="profile-pic" style="border: 2px solid #fea116; padding: 10px; border-radius: 50%;">
+                        <img src="assets/img/about-1.jpg" alt="Admin Profile Picture" class="rounded-circle" width="200" height="200">
+                    </div>
+
+                    <!-- Center: Admin Information -->
+                    <div class="admin-info" style="border: 2px solid #fea116; padding: 10px; border-radius: 10px; max-width: 400px;">
+                        <h1 class="text-white mb-3 animated slideInDown">Admin Profile</h1>
+                        <div class="profile-info" style="text-align: center;">
+                            <p style="color: #fea116;"><strong>Name:</strong> {{ name }}</p>
+                            <p style="color: #fea116;"><strong>Email:</strong> {{ email }}</p>
+                            <p style="color: #fea116;"><strong>Role:</strong> Administrator</p>
+                        </div>
+                    </div>
+
+                    <!-- Right Side: Application Logo -->
+                    <div class="app-logo" style="border: 2px solid #fea116; padding: 10px; border-radius: 10px;">
+                        <img src="assets/img/logo2.jpg" alt="Application Logo" width="250" height="100">
+                    </div>
+                </div>
+            </div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase" style="text-align: center;">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/adminprofile">Back to page</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page"><a href="/aboutus">About</a></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    
+   <!-- Trip basic details
+   <section class="add-package-panel">
+    <div class="input-group">
+      <label for="current-location">Current Location</label>
+      <input type="text" id="current-location" placeholder="Enter your current location" [(ngModel)]="currentLocation">
+    </div>
+    <div class="input-group">
+      <label for="destination">Destination</label>
+      <input type="text" id="destination" placeholder="City or Destination" [(ngModel)]="destination">
+    </div>
+    <div class="input-group">
+      <label for="travel-date">Date</label>
+      <input type="date" id="travel-date" [(ngModel)]="travelDate">
+    </div>
+    <div class="input-group">
+      <label for="number-of-people">Number of People</label>
+      <input type="number" id="number-of-people" min="1" placeholder="Enter number of people"
+        [(ngModel)]="numberOfPeople">
+    </div>
+    <button class="add-btn" (click)="addPackage()">Add Details</button>
+  </section> -->
+
+   <!-- Add Hotels Section -->
+   <div *ngIf="showHotelSection">
+    <div class="container-fluid page-header mb-5 p-0"
+      style="background-image: url(assets/img/room-1.jpg); background-size: cover; background-position: center;">
+      <div class="container-fluid page-header-inner py-3" style="background: rgba(0, 0, 0, 0.5);">
+        <div class="container text-center py-3">
+          <h1 class="display-3 text-white mb-3 animated slideInDown">Add Hotels</h1>
+        </div>
+      </div>
+    </div>
+
+    <section class="search-panel">
+      <!-- Hotel Form Inputs -->
+      <div class="input-group">
+        <label for="hotel-destination">Destination</label>
+        <input type="text" id="hotel-destination" placeholder="City or Hotel Name" [(ngModel)]="destination">
+      </div>
+      <div class="input-group">
+        <label for="checkin-date">Check-In Date</label>
+        <input type="date" id="checkin-date" [(ngModel)]="checkinDate">
+      </div>
+      <div class="input-group">
+        <label for="checkout-date">Check-Out Date</label>
+        <input type="date" id="checkout-date" [(ngModel)]="checkoutDate">
+      </div>
+      <div class="input-group">
+        <label for="guests">Guests</label>
+        <select id="guests" [(ngModel)]="guests">
+          <option *ngFor="let option of guestOptions" [value]="option">{{ option }}</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="rooms">Rooms</label>
+        <select id="rooms" [(ngModel)]="rooms">
+          <option *ngFor="let option of roomOptions" [value]="option">{{ option }}</option>
+        </select>
+      </div>
+      <button class="search-btn" (click)="searchHotels()">Search Hotels</button>
+    </section>
+
+    <section class="hotel-results">
+      <!-- Hotel Results -->
+      <div *ngFor="let hotel of hotelResults" class="result">
+        <img [src]="hotel.image" alt="Hotel Image" class="hotel-image">
+        <div class="hotel-details">
+          <h3>{{ hotel.name }}</h3>
+          <p>Location: {{ hotel.location }}</p>
+          <p>Rating: {{ hotel.rating }}</p>
+          <p>Price: ${{ hotel.price }}/night</p>
+          <p>Amenities: {{ hotel.amenities }}</p>
+        </div>
+        <div class="actions">
+          <button class="book-btn" (click)="bookHotel(hotel)">Add To Package</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  </div>

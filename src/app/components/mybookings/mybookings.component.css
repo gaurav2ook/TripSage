@@ -1,0 +1,97 @@
+/* Page Header */
+.page-header {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    text-align: center; /* Aligning text in the center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Adjusted height to give space for centering */
+    border: 4px solid #fea116;
+  }
+  
+  .page-header-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ensure it takes the full width */
+    height: 100%; /* Ensures full vertical centering */
+    padding: 0; /* Remove extra padding */
+  }
+  
+  .page-header .container {
+    text-align: center; /* Ensure the content inside the container is centered */
+    width: 100%; /* Ensure container spans the full width */
+    padding: 0; /* Remove extra padding */
+  }
+  
+  .page-header h1 {
+    font-size: 2.5em; /* Adjust the font size of the header */
+    margin: 0; /* Remove margin to avoid unwanted spacing */
+    animation: slideInDown 0.5s ease-out;
+  }
+  
+  .page-header p {
+    font-size: 1.2em;
+    margin-top: 5px; /* Adjusted margin for better spacing */
+    margin-bottom: 0; /* Remove bottom margin to prevent unnecessary space */
+  }
+  
+  /* Table Container Styling */
+  .table-box {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Table Styling */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+  }
+  
+  .table th, .table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table th {
+    background-color: #f4f4f4;
+    color: #0f172b;
+  }
+  
+  .table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Booking Status Styling */
+  .status-completed {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .status-cancelled {
+    color: red;
+    font-weight: bold;
+  }
+  
+  /* Button Styling */
+  .btn-danger {
+    background-color: #fea116;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-danger:hover {
+    background-color: #ff1900;
+  }
+  

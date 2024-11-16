@@ -1,0 +1,145 @@
+/* Page Header */
+.page-header {
+  background-color: #0f172b;
+  border-radius: 10px;
+  padding: 0;
+}
+
+.page-header-inner {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 50px 0;
+}
+
+.page-header h1,
+.page-header p {
+  color: #fea116;
+}
+
+.page-header .breadcrumb {
+  background-color: transparent;
+  text-align: center;
+  padding: 0;
+}
+
+.page-header .breadcrumb a {
+  color: #fea116;
+  text-decoration: none;
+}
+
+.page-header .breadcrumb-item.active {
+  color: white;
+}
+
+/* Admin Profile Section */
+.profile-pic {
+  border: 2px solid #fea116;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.profile-pic img {
+  border-radius: 50%;
+}
+
+.admin-info {
+  border: 2px solid #fea116;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.admin-info h1 {
+  color: #fea116;
+}
+
+.admin-info .profile-info p {
+  color: #fea116;
+}
+
+.app-logo {
+  border: 2px solid #fea116;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Packages Table */
+.packages-list-section {
+  padding: 40px 0;
+  background-color: #f4f4f4;
+  
+}
+
+.packages-list-section h3 {
+  color: #0f172b;
+  font-size: large;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  background-color: #fea116;
+  color: white;
+  font-weight: bold;
+}
+
+table tr:hover {
+  background-color: #f1f1f1;
+}
+
+table .btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+table .btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+table td .btn {
+  margin-top: 5px;
+}
+
+/* No Packages Message */
+.packages-list-section .text-center {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #0f172b;
+}
+
+/* Responsive Styling for Table */
+@media (max-width: 768px) {
+  .admin-info {
+    max-width: 100%;
+  }
+
+  .profile-pic,
+  .app-logo {
+    max-width: 150px;
+    margin: 0 auto;
+  }
+
+  table th, table td {
+    font-size: 14px;
+  }
+
+  table .btn-danger {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,58 @@
+<div class="my-reviews container">
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 p-0" style="background-image: url('assets/img/0f172b.png'); border: 4px solid #fea116; height: 150px;">
+      <div class="container-fluid page-header-inner py-5">
+        <div class="container text-center pb-6">
+          <h1 class="text-white mb-3 animated slideInDown">My Reviews</h1>
+          <p class="text-white">Manage and view the reviews you have written for your trips.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Page Header End -->
+  
+    <!-- New Review Form Start -->
+    <div class="new-review-form section mb-5">
+      <h3>Add Your Review</h3>
+      <form (ngSubmit)="submitReview()">
+        <div class="form-group">
+          <label for="title">Review Title</label>
+          <input type="text" id="title" class="form-control" [(ngModel)]="newReview.title" name="title" required>
+        </div>
+        <div class="form-group">
+          <label for="rating">Rating</label>
+          <input type="number" id="rating" class="form-control" [(ngModel)]="newReview.rating" name="rating" min="1" max="5" required>
+        </div>
+        <div class="form-group">
+          <label for="reviewText">Review Text</label>
+          <textarea id="reviewText" class="form-control" [(ngModel)]="newReview.description" name="description" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input type="date" id="date" class="form-control" [(ngModel)]="newReview.date" name="date" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+      </form>
+    </div>
+    <!-- New Review Form End -->
+
+    <!-- Reviews Section Start -->
+    <div class="reviews-section section">
+      <h3>Your Trip Reviews</h3>
+      <div class="reviews-container">
+        <!-- Loop through reviews and display each card -->
+        <div class="review-card" *ngFor="let review of reviews; let i = index">
+          <div class="review-info">
+            <h4>{{ review.title }}</h4>
+            <p class="rating">Rating: ★{{ review.rating }}☆☆</p>
+            <p class="review-text">{{ review.description }}</p>
+            <p class="review-date">Reviewed on: {{ review.date }}</p>
+          </div>
+          <div class="review-actions">
+            <button class="btn btn-edit" (click)="editReview(i)">Edit Review</button>
+            <button class="btn btn-delete" (click)="deleteReview(i)">Delete Review</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Reviews Section End -->
+  </div>

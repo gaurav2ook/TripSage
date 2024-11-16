@@ -1,0 +1,72 @@
+<!-- Header -->
+<header id="header">
+    <h2>User Management</h2>
+    <button id="add-user-btn" class="btn primary-btn" (click)="openModal()">
+        <i class="fas fa-user-plus"></i> Add New User
+    </button>
+</header>
+
+<!-- Search and Filter -->
+<section id="search-filter">
+    <input type="text" placeholder="Search by name or email" id="search-input" [(ngModel)]="searchQuery"
+        (input)="filterUsers()">
+    <select id="role-filter" [(ngModel)]="selectedRole" (change)="filterUsers()">
+        <option value="all">All Roles</option>
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+        <option value="agent">Travel Agent</option>
+    </select>
+</section>
+
+<!-- User List -->
+<section id="user-list">
+    <div class="user-card" *ngFor="let user of filterUsers()">
+        <img src="" alt="User Avatar">
+        <div class="user-info">
+            <h4>{{ user.firstName }} {{ user.lastName }}</h4>
+            <p>Email: {{ user.email }}</p>
+            <p>Role: {{ user.role }}</p>
+        </div>
+        <div class="user-actions">
+            <button class="edit-btn" (click)="openModal(user)"><i class="fas fa-edit"></i> Edit</button>
+            <button class="delete-btn" (click)="deleteUser(user.id)"><i class="fas fa-trash-alt"></i> Delete</button>
+        </div>
+    </div>
+</section>
+
+<!-- User Modal -->
+<div id="userModal" class="modal" *ngIf="isModalOpen">
+    <div class="modal-content">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <h3 id="modal-title">{{ currentUser && currentUser.id ? 'Edit User' : 'Add New User' }}</h3>
+        <form id="user-form" (ngSubmit)="submitUser()">
+            <div *ngIf="currentUser">
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" [(ngModel)]="currentUser.username" name="username"
+                        placeholder="Enter username" required />
+                </div>
+
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" [(ngModel)]="currentUser.email" name="email"
+                        placeholder="Enter email" required />
+                </div>
+
+                <div>
+                    <label for="role">Role:</label>
+                    <select id="role" [(ngModel)]="currentUser.role" name="role" required>
+                        <option value="admin">Admin</option>
+                        <option value="user">User</option>
+                        <option value="guest">Guest</option>
+                    </select>
+                </div>
+
+                <button type="submit">Save User</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

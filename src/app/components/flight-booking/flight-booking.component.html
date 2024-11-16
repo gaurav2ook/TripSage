@@ -1,0 +1,76 @@
+<div class="wrapper" style="background-image: url(assets/img/);">
+<!-- flight-search.component.html -->
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 p-0" style="background-image: url(assets/img/airplane3.jpg);">
+  <div class="container-fluid page-header-inner py-5">
+      <div class="container text-center pb-5">
+          <h1 class="display-3 text-white mb-3 animated slideInDown">Flights</h1>
+          <nav aria-label="breadcrumb">
+              <ol class="breadcrumb justify-content-center text-uppercase">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+              </ol>
+          </nav>
+      </div>
+  </div>
+</div>
+<!-- Page Header End -->
+  
+  <section class="search-panel">
+    <div class="input-group">
+      <label for="from">From</label>
+      <input type="text" id="from" placeholder="Departure City or Airport" [(ngModel)]="from">
+    </div>
+    <div class="input-group">
+      <label for="to">To</label>
+      <input type="text" id="to" placeholder="Destination City or Airport" [(ngModel)]="to">
+    </div>
+    <div class="input-group">
+      <label for="departure">Departure Date</label>
+      <input type="date" id="departure" [(ngModel)]="departureDate">
+    </div>
+    <div class="input-group" *ngIf="tripType !== 'one-way'">
+      <label for="return">Return Date</label>
+      <input type="date" id="return" [(ngModel)]="returnDate">
+    </div>
+    <div class="trip-type">
+      <label>
+        <input type="radio" name="trip" value="one-way" [(ngModel)]="tripType"> One-Way
+      </label>
+      <label>
+        <input type="radio" name="trip" value="round-trip" [(ngModel)]="tripType"> Round Trip
+      </label>
+      <label>
+        <input type="radio" name="trip" value="multi-city" [(ngModel)]="tripType"> Multi-City
+      </label>
+    </div>
+    <div class="input-group">
+      <label for="passengers">Passengers</label>
+      <select id="passengers" [(ngModel)]="passengers">
+        <option *ngFor="let option of passengerOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <label for="class">Class</label>
+      <select id="class" [(ngModel)]="travelClass">
+        <option *ngFor="let option of classOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+    <button class="search-btn" (click)="searchFlights()">Search Flights</button>
+  </section>
+  
+  <section class="flight-results">
+    <div class="no-data" *ngIf="flightResults.length === 0">No data found</div>
+    <div *ngFor="let flight of flightResults" class="result">
+      <img [src]="flight.image" alt="Airline Logo" class="airline-logo">
+      <div class="flight-details">
+        <h3>{{ flight.name }}</h3>
+        <p>Departure: {{ flight.departure }} | Arrival: {{ flight.arrival }}</p>
+        <p>{{ flight.type }} | {{ flight.duration }}</p>
+      </div>
+      <div class="price">${{ flight.price }}</div>
+      <button class="select-btn" (click)="selectFlight(flight)">Select</button>
+    </div>
+  </section>
+</div>

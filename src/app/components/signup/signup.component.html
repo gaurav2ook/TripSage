@@ -1,0 +1,88 @@
+<div>
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 p-0" style="background-image: url(assets/img/carousel-1.jpg);">
+        <div class="container-fluid page-header-inner py-5">
+            <div class="container text-center pb-5">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">REGISTRATION</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center text-uppercase">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item text-white active"><a href="/login">LOGIN</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <div class="display text-white mb-3 animated slideInLeft">
+        <div class="inner">
+            <div class="image-holder">
+                <img src="assets/img/reg.png" alt="">
+            </div>
+            <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+                <h3>Registration Form</h3>
+                <div *ngIf="isSubmitted && errorMessage" class="alert alert-danger">
+                    {{ errorMessage }}
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="First Name" formControlName="firstName" class="form-control" />
+                    <input type="text" placeholder="Last Name" formControlName="lastName" class="form-control" />
+                </div>
+                <div class="form-wrapper">
+                    <input type="text" placeholder="Username" formControlName="username" class="form-control" />
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <div class="form-wrapper">
+                    <input type="text" placeholder="Email Address" formControlName="email" class="form-control" />
+                    <i class="bi bi-envelope-fill"></i>
+                </div>
+                <div class="form-wrapper">
+                    <input type="tel" placeholder="Phone Number" formControlName="phoneNumber" class="form-control" />
+                    <i class="bi bi-telephone-fill"></i>
+                </div>
+                
+                <!-- Gender and Role Fields in the Same Row -->
+                <div class="form-group-inline">
+                    <div class="form-wrapper-inline">
+                        <select formControlName="gender" class="form-control">
+                            <option value="" disabled selected>Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <i class="bi bi-caret-down-fill" style="font-size: 17px"></i>
+                    </div>
+
+                    <div class="form-wrapper-inline">
+                        <select formControlName="role" class="form-control">
+                            <option value="" disabled selected>Role</option>
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                        <i class="bi bi-caret-down-fill" style="font-size: 17px"></i>
+                    </div>
+                </div>
+
+                <div class="form-wrapper">
+                    <input type="password" placeholder="Password" formControlName="password" class="form-control" />
+                    <i class="bi bi-lock-fill"></i>
+                </div>
+                <div class="form-wrapper">
+                    <input type="password" placeholder="Confirm Password" formControlName="confirmPassword" class="form-control" />
+                    <i class="bi bi-lock-fill"></i>
+                </div>
+                <button type="submit">Register
+                    <i class="bi bi-arrow-right"></i>
+                </button>
+                <p style="text-align: center; margin-top: 15px; color: #091c2e;">
+                    Already have an account? 
+                    <a (click)="navigateToLogin()" style="color: #007bff; text-decoration: none;">Login</a>
+                </p>
+
+                <!-- Display error message if form is invalid or passwords don’t match -->
+                
+            </form>
+        </div>
+    </div>
+</div>

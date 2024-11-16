@@ -1,0 +1,106 @@
+<div>
+  <!-- header start -->
+  <header>
+    <div class="container-fluid page-header px-0" style="border-color: #fea116;">
+      <div class="container-fluid page-header-inner" style="background-color: #0f172b; justify-content:space-between; border: 6px solid #fea116;">
+        <div class="container text-center py-3">
+          <h1 class="display-5 text-white mb-3 animated slideInDown">Payment</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- header end -->
+
+  <!-- page start -->
+  <section class="payment-container">
+    <div class="payment-summary">
+      <h3>Booking Summary</h3>
+      <div class="service-details">
+        <p><strong>Service:</strong> {{ bookingData.serviceType }}</p>
+        <p><strong>Location:</strong> {{ bookingData.location }}</p>
+        <p><strong>Check-in:</strong> {{ bookingData.checkinDate }}</p>
+        <p><strong>Check-out:</strong> {{ bookingData.checkoutDate }}</p>
+        <p *ngIf="bookingData.packageDuration"><strong>Duration:</strong> {{ bookingData.packageDuration }} days</p>
+      </div>
+
+      <div class="price-details">
+        <p><strong>Total:</strong> ${{ bookingData.totalAmount }}</p>
+      </div>
+
+      <button class="edit-btn" aria-label="Edit Booking" routerLink="/booking">Edit Booking</button>
+    </div>
+
+    <div class="payment-options">
+      <h3>Select Payment Method</h3>
+
+      <!-- Payment Method Selection -->
+      <div class="payment-method-buttons-column">
+        <div class="payment-method-box">
+            <input type="radio" name="paymentMethod" value="Credit Card" [(ngModel)]="selectedPaymentMethod">
+            <span class="payment-method-text">Credit Card</span>
+        </div>
+        <div class="payment-method-box">
+            <input type="radio" name="paymentMethod" value="UPI" [(ngModel)]="selectedPaymentMethod">
+            <span class="payment-method-text">UPI</span>
+        </div>
+        <div class="payment-method-box">
+            <input type="radio" name="paymentMethod" value="Google Pay" [(ngModel)]="selectedPaymentMethod">
+            <span class="payment-method-text">Google Pay</span>
+        </div>
+        <div class="payment-method-box">
+            <input type="radio" name="paymentMethod" value="PayPal" [(ngModel)]="selectedPaymentMethod">
+            <span class="payment-method-text">PayPal</span>
+        </div>
+    </div>
+    
+
+      <!-- Credit Card Form -->
+      <div *ngIf="selectedPaymentMethod === 'Credit Card'" class="credit-card-form">
+        <label for="card-number">Card Number</label>
+        <input type="text" id="card-number" placeholder="1234 5678 9012 3456" [(ngModel)]="cardNumber" required>
+
+        <div class="card-details">
+          <div>
+            <label for="exp-month">Exp. Month</label>
+            <input type="text" id="exp-month" placeholder="MM" [(ngModel)]="expMonth" required>
+          </div>
+          <div>
+            <label for="exp-year">Exp. Year</label>
+            <input type="text" id="exp-year" placeholder="YYYY" [(ngModel)]="expYear" required>
+          </div>
+          <div>
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" placeholder="123" [(ngModel)]="cvv" required>
+          </div>
+        </div>
+
+        <label for="cardholder-name">Cardholder Name</label>
+        <input type="text" id="cardholder-name" placeholder="Full Name" [(ngModel)]="cardholderName" required>
+      </div>
+
+      <!-- UPI Payment Option -->
+      <div *ngIf="selectedPaymentMethod === 'UPI'" class="upi-option">
+        <label for="upi-id">UPI ID</label>
+        <input type="text" id="upi-id" placeholder="Enter UPI ID (e.g., name@bank)" [(ngModel)]="upiId" required>
+      </div>
+
+      <!-- Google Pay Option -->
+      <div *ngIf="selectedPaymentMethod === 'Google Pay'" class="google-pay-option">
+        <p>Click below to proceed with Google Pay:</p>
+        <button class="google-pay-btn" aria-label="Proceed with Google Pay" (click)="payWithGooglePay()">Proceed with Google Pay</button>
+      </div>
+
+      <!-- PayPal Option -->
+      <div *ngIf="selectedPaymentMethod === 'PayPal'" class="paypal-option">
+        <p>Click below to proceed with PayPal:</p>
+        <button class="paypal-btn" aria-label="Proceed with PayPal" (click)="payWithPaypal()">Proceed with PayPal</button>
+      </div>
+
+      <!-- Final Payment Section -->
+      <div class="final-payment" *ngIf="selectedPaymentMethod">
+        <p><strong>Total:</strong> ${{ bookingData.totalAmount }}</p>
+        <button class="pay-btn" aria-label="Pay Now" (click)="makePayment()">Pay Now</button>
+      </div>
+    </div>
+  </section>
+</div>

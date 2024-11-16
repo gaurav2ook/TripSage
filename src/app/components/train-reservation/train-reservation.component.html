@@ -1,0 +1,75 @@
+<div class="wrapper" style="background-image: url(assets/img/);">
+<!-- train-search.component.html -->
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header mb-5 p-0" style="background-image: url(assets/img/train3.jpg);">
+  <div class="container-fluid page-header-inner py-5">
+      <div class="container text-center pb-5">
+          <h1 class="display-3 text-white mb-3 animated slideInDown">TRAIN RESEVATION</h1>
+          <nav aria-label="breadcrumb">
+              <ol class="breadcrumb justify-content-center text-uppercase">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                 
+                  <li class="breadcrumb-item text-white active" aria-current="page"><a href="/aboutus">About</a></li>
+              </ol>
+          </nav>
+      </div>
+  </div>
+</div>
+<!-- Page Header End -->
+  
+  <section class="search-panel">
+    <div class="input-group">
+      <label for="from">From</label>
+      <input type="text" id="from" placeholder="Departure Station" [(ngModel)]="fromStation">
+    </div>
+    <div class="input-group">
+      <label for="to">To</label>
+      <input type="text" id="to" placeholder="Destination Station" [(ngModel)]="toStation">
+    </div>
+    <div class="input-group">
+      <label for="departure-date">Departure Date</label>
+      <input type="date" id="departure-date" [(ngModel)]="departureDate">
+    </div>
+    <div class="input-group">
+      <label for="return-date">Return Date (Optional)</label>
+      <input type="date" id="return-date" [(ngModel)]="returnDate">
+    </div>
+    <div class="trip-type">
+      <label>
+        <input type="radio" name="trip" value="one-way" [(ngModel)]="tripType"> One-Way
+      </label>
+      <label>
+        <input type="radio" name="trip" value="round-trip" [(ngModel)]="tripType"> Round Trip
+      </label>
+    </div>
+    <div class="input-group">
+      <label for="passengers">Passengers</label>
+      <select id="passengers" [(ngModel)]="passengerCount">
+        <option *ngFor="let option of passengerOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <label for="class">Class</label>
+      <select id="class" [(ngModel)]="travelClass">
+        <option *ngFor="let option of classOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+    <button class="search-btn" (click)="searchTrains()">Search Trains</button>
+  </section>
+  
+  <section class="train-results">
+    <div class="no-data" *ngIf="trainResults.length === 0">No data found</div>
+    <div *ngFor="let train of trainResults" class="result">
+      <img [src]="train.image" alt="Train Icon" class="train-icon">
+      <div class="train-details">
+        <h3>{{ train.name }}</h3>
+        <p>Departure: {{ train.departure }} | Arrival: {{ train.arrival }}</p>
+        <p>Duration: {{ train.duration }} | {{ train.stops }}</p>
+        <p>Class: {{ train.classes }}</p>
+      </div>
+      <div class="price">${{ train.price }}</div>
+      <button class="book-btn" (click)="bookTrain(train)">Book Now</button>
+    </div>
+  </section>
+</div>

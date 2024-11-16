@@ -1,0 +1,213 @@
+/* Reset common styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Reset common form styles */
+input, textarea, select, button {
+  font-family: "Poppins-Regular", Arial, sans-serif;
+  color: #333;
+  font-size: 13px;
+}
+
+p, h1, h2, h3, h4, h5, h6, ul {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  padding-left: 0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+:focus {
+  outline: none;
+}
+
+/* Wrapper should now account for the navbar */
+.wrapper {
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column; /* Ensure content flows vertically */
+  padding-top: 80px; /* Ensure there's space below the navbar */
+}
+
+.inner {
+  padding: 20px;
+  background: #ffffff;
+  max-width: 850px;
+  margin: auto;
+  display: flex;
+  border: 5px solid #091c2e; /* Border color */
+  border-radius: 4px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); /* Optional: add subtle shadow */
+}
+
+.inner form {
+  width: 100%;
+  padding-top: 36px;
+  padding-left: 45px;
+  padding-right: 45px;
+}
+
+.inner h3 {
+  text-transform: uppercase;
+  font-size: 25px;
+  font-family: "Poppins-SemiBold", Arial, sans-serif;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.form-group {
+  display: flex;
+}
+
+.form-group input {
+  width: 50%;
+}
+
+.form-group input:first-child {
+  margin-right: 25px;
+}
+
+/* Form Wrapper with position icons */
+.form-wrapper {
+  position: relative;
+  margin-bottom: 20px; /* Adjusted spacing */
+}
+
+.form-wrapper i {
+  position: absolute;
+  bottom: 9px;
+  right: 10px;
+  color: #333; /* Ensure icon color matches theme */
+}
+
+.form-control {
+  border: none;
+  border-bottom: 1px solid #333;
+  width: 100%;
+  height: 36px;
+  padding: 0 8px;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+/* Placeholder styling */
+.form-control::placeholder {
+  color: #888; /* Softer placeholder color */
+  font-size: 13px;
+}
+
+/* Dropdown (select) styling */
+select {
+  cursor: pointer;
+  padding: 8px 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Hide empty option for disabled select options */
+select option[value=""][disabled] {
+  display: none;
+}
+
+/* Button styling */
+button {
+  border: none;
+  width: 180px;
+  height: 45px;
+  margin: 40px auto 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #091c2e;
+  color: #fff;
+  font-size: 15px;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+button i {
+  margin-left: 10px;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Icon animation on button */
+button:hover i,
+button:focus i,
+button:active i {
+  animation: hvr-icon-wobble-horizontal 1s ease-in-out 1;
+}
+
+/* Icon wobble animation */
+@keyframes hvr-icon-wobble-horizontal {
+  16.65% { transform: translateX(6px); }
+  33.3% { transform: translateX(-5px); }
+  49.95% { transform: translateX(4px); }
+  66.6% { transform: translateX(-2px); }
+  83.25% { transform: translateX(1px); }
+  100% { transform: translateX(0); }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1199px) {
+  .wrapper {
+      background-position: right center;
+  }
+}
+
+@media (max-width: 991px) {
+  .inner {
+      padding: 20px;
+  }
+
+  .inner form {
+      padding: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .inner {
+      display: block;
+      width: 100%;
+  }
+
+  .inner form {
+      width: 100%;
+      padding: 20px;
+  }
+
+  .inner .image-holder {
+      width: 100%;
+  }
+}
+
+/* Increase button margin for better spacing on mobile */
+@media (max-width: 576px) {
+  button {
+      width: 100%;
+      margin-top: 20px;
+  }
+}

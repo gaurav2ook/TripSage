@@ -1,0 +1,157 @@
+<div class="wrapper" style="background-image: url(assets/img/);">
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 p-0" style="background-image: url(assets/img/room-1.jpg);">
+        <div class="container-fluid page-header-inner py-5">
+            <div class="container text-center pb-5">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Book Your Stay & Dine</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center text-uppercase">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Booking</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Hotel Search and Booking Section Start -->
+    <div class="container-fluid page-header mb-2 p-0" style="background-color: #0f172b; background-position:0%;">
+        <div class="container-fluid page-header-inner"
+            style="background: rgba(4, 13, 79, 0.555);justify-content: center;">
+            <div class="container text-center py-3">
+                <h1 class="display-5 text-white mb-3 animated slideInDown">Hotel Booking</h1>
+            </div>
+        </div>
+    </div>
+
+    <section class="hotel-results">
+        <div *ngFor="let hotel of hotelResults" class="result">
+            <img [src]="hotel.image" alt="Hotel Image" class="hotel-image">
+            <div class="hotel-details">
+                <h3>{{ hotel.name }}</h3>
+                <p>Location: {{ hotel.location }}</p>
+                <p>Rating: {{ hotel.rating }}</p>
+                <p>Amenities: {{ hotel.amenities }}</p>
+                <div class="price">${{ hotel.price }}/night</div>
+            </div>
+            <div class="actions">
+                <button class="pay-now-btn" (click)="makePayment(hotelResults)">Pay Now</button>
+            </div>
+        </div>
+
+    </section>
+    <!-- Hotel Search and Booking Section End -->
+
+    <!-- Package Search and Booking Section Start -->
+
+    <div class="container-fluid page-header mb-2 p-0" style="background-color: #0f172b; background-position:0%;">
+        <div class="container-fluid page-header-inner"
+            style="background: rgba(4, 13, 79, 0.555);justify-content: center;">
+            <div class="container text-center py-3">
+                <h1 class="display-5 text-white mb-3 animated slideInDown">Package Booking</h1>
+            </div>
+        </div>
+    </div>
+    <section class="package-results">
+        <div *ngFor="let package of packageResults" class="result">
+            <img [src]="package.image" alt="Package Image" class="package-image">
+            <div class="package-details">
+                <h3>{{ package.name }}</h3>
+                <p>Location: {{ package.location }}</p>
+                <p>Duration: {{ package.duration }} days</p>
+                <p>Description: {{ package.description }}</p>
+                <div class="price">${{ package.price }}</div>
+            </div>
+            <div class="actions">
+                <button class="pay-now-btn" (click)="makePayment(packageResults)">Pay Now</button>
+            </div>
+        </div>
+    </section>
+    <!-- Package Search and Booking Section End -->
+
+    <!-- Restaurant Search and Booking Section Start -->
+    <div class="container-fluid page-header mb-2 p-0" style="background-color: #0f172b; background-position:0%;">
+        <div class="container-fluid page-header-inner"
+            style="background: rgba(4, 13, 79, 0.555);justify-content: center;">
+            <div class="container text-center py-3">
+                <h1 class="display-5 text-white mb-3 animated slideInDown">Restaurant Booking</h1>
+            </div>
+        </div>
+    </div>
+    <section class="restaurant-results">
+        <div *ngFor="let restaurant of restaurantResults" class="result">
+            <img [src]="restaurant.image" alt="Restaurant Image" class="restaurant-image">
+            <div class="restaurant-details">
+                <h3>{{ restaurant.name }}</h3>
+                <p>Location: {{ restaurant.location }}</p>
+                <p>Cuisine: {{ restaurant.cuisine }} | ⭐️ {{ restaurant.rating }}</p>
+                <p>Features: {{ restaurant.features }}</p>
+                <div class="price">${{ restaurant.price }}</div>
+            </div>
+            <div class="actions">
+                <button class="pay-now-btn" (click)="makePayment(restaurant)">Pay Now</button>
+            </div>
+        </div>
+    </section>
+    <!-- Restaurant Search and Booking Section End -->
+
+    <!-- Train Search and booking section start -->
+    <div class="container-fluid page-header mb-2 p-0" style="background-color: #0f172b; background-position:0%;">
+        <div class="container-fluid page-header-inner"
+            style="background: rgba(4, 13, 79, 0.555);justify-content: center;">
+            <div class="container text-center py-3">
+                <h1 class="display-5 text-white mb-3 animated slideInDown">Train Booking</h1>
+            </div>
+        </div>
+    </div>
+
+    <section class="train-results">
+        <div *ngFor="let train of trainResults" class="result">
+          <img [src]="train.icon" alt="Train Icon" class="train-icon">
+          <div class="train-details">
+            <h3>{{ train.name }}</h3>
+            <p>Departure: {{ train.departureTime }} | Arrival: {{ train.arrivalTime }}</p>
+            <p>Duration: {{ train.duration }} | {{ train.stops }}</p>
+            <p>Class: {{ train.classes }}</p>
+            <div class="price">${{ train.price }}</div>
+          </div>
+          
+          <div class="actions">
+            <button class="pay-now-btn" (click)="makePayment(train)">Pay Now</button>
+        </div>
+        </div>
+      </section>
+
+    <!-- Train Search and booking section end -->
+
+     <!-- Flight Search and booking section start -->
+
+     <div class="container-fluid page-header mb-2 p-0" style="background-color: #0f172b; background-position:0%;">
+        <div class="container-fluid page-header-inner"
+            style="background: rgba(4, 13, 79, 0.555);justify-content: center;">
+            <div class="container text-center py-3">
+                <h1 class="display-5 text-white mb-3 animated slideInDown">Flight Booking</h1>
+            </div>
+        </div>
+    </div>
+
+    <section class="flight-results">
+        <div *ngFor="let flight of flightResults" class="result">
+          <img [src]="flight.logo" alt="Airline Logo" class="airline-logo">
+          <div class="flight-details">
+            <h3>{{ flight.airline }}</h3>
+            <p>Departure: {{ flight.departureTime }} | Arrival: {{ flight.arrivalTime }}</p>
+            <p>{{ flight.flightType }} | {{ flight.duration }}</p>
+            <div class="price">${{ flight.price }}</div>
+          </div>
+         
+          <div class="actions">
+            <button class="pay-now-btn" (click)="makePayment(flight)">Pay Now</button>
+        </div>
+        </div>
+      </section>
+
+     <!-- Flight Search and booking section end -->
+
+</div>

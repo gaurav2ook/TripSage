@@ -1,0 +1,61 @@
+<div>
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 p-0" style="background-image: url(assets/img/carousel-1.jpg);">
+        <div class="container-fluid page-header-inner py-5">
+            <div class="container text-center pb-5">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">LOGIN</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center text-uppercase">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item text-white active"><a href="/signup">REGISTRATION</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Login Form Section -->
+    <div class="display text-white mb-3 animated slideInLeft">
+        <div class="login-section">
+            <div class="inner">
+                <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                    <h3>Login Form</h3>
+
+                    <!-- Error Message Display -->
+                    <div *ngIf="isSubmitted && errorMessage" class="alert alert-danger">
+                        {{ errorMessage }}
+                    </div>
+
+                    <!-- Email Input Field -->
+                    <div class="form-wrapper">
+                        <input type="text" placeholder="Email Address" class="form-control" formControlName="email">
+                        <i class="bi bi-envelope-fill"></i>
+                    </div>
+
+                    <!-- Password Input Field -->
+                    <div class="form-wrapper">
+                        <input type="password" placeholder="Password" class="form-control" formControlName="password">
+                        <i class="bi bi-lock-fill"></i>
+                    </div>
+
+                    <button type="submit" (click)="onLogin()">Login
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+
+                    <!-- Register Link -->
+                    <p style="text-align: center; margin-top: 15px; color: #091c2e;">
+                        Don't have an account?
+                        <a (click)="navigateToSignup()" style="color: #007bff; text-decoration: none;">Register</a>
+                    </p>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css"
+    rel="stylesheet">

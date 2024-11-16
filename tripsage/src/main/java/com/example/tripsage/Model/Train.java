@@ -1,0 +1,88 @@
+package com.example.tripsage.Model;
+
+import java.time.LocalDateTime;
+
+import org.hibernate.annotations.CreationTimestamp;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
+public class Train {
+
+	@Id
+    private String id;
+	
+	private String image;
+	private String name;
+	private String departure;
+	private String arrival;
+	private String duration;
+	private String stops;
+	private String classes;
+	private String price;
+	
+	@CreationTimestamp
+    private LocalDateTime date;
+	
+	public LocalDateTime getDate() {
+		return date;
+	}
+	public void setDate(LocalDateTime date) {
+		this.date = date;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getDeparture() {
+		return departure;
+	}
+	public void setDeparture(String departure) {
+		this.departure = departure;
+	}
+	public String getArrival() {
+		return arrival;
+	}
+	public void setArrival(String arrival) {
+		this.arrival = arrival;
+	}
+	public String getDuration() {
+		return duration;
+	}
+	public void setDuration(String duration) {
+		this.duration = duration;
+	}
+	public String getStops() {
+		return stops;
+	}
+	public void setStops(String stops) {
+		this.stops = stops;
+	}
+	public String getClasses() {
+		return classes;
+	}
+	public void setClasses(String classes) {
+		this.classes = classes;
+	}
+	public String getPrice() {
+		return price;
+	}
+	public void setPrice(String price) {
+		this.price = price;
+	}
+}
