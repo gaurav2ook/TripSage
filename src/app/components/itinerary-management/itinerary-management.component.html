@@ -65,24 +65,69 @@
     <button class="add-btn" (click)="addPackage()">Add Details</button>
   </section>
 
+ 
   <!-- Add Package Buttons -->
-  <div class="container text-center py-5">
-    <h1 class="display-3 mb-3 animated slideInDown" style="color: #0f172b;">Add Services To Your Trip</h1>
+  <div class="container text-center py-2">
+    <h1
+      class="display-5 mb-3 animated slideInDown"
+      style="
+        color: #ffffff;
+        background-color: #0f172b;
+        border: 4px solid #fea116;
+      "
+    >
+      Add Services To Your Trip
+    </h1>
     <div class="button-group">
-      <button class="add-btn" (click)="togglePackageSection('hotels')">Add Hotels</button>
-      <button class="add-btn" (click)="togglePackageSection('trains')">Add Trains</button>
-      <button class="add-btn" (click)="togglePackageSection('flights')">Add Flights</button>
-      <button class="add-btn" (click)="togglePackageSection('restaurants')">Add Restaurants</button>
+      <button
+        class="add-btn"
+        (click)="togglePackageSection('hotels')"
+        style="border: 2px solid #0f172b"
+      >
+        Add Hotels
+      </button>
+      <button
+        class="add-btn"
+        (click)="togglePackageSection('trains')"
+        style="border: 2px solid #0f172b"
+      >
+        Add Trains
+      </button>
+      <button
+        class="add-btn"
+        (click)="togglePackageSection('flights')"
+        style="border: 2px solid #0f172b"
+      >
+        Add Flights
+      </button>
+      <button
+        class="add-btn"
+        (click)="togglePackageSection('restaurants')"
+        style="border: 2px solid #0f172b"
+      >
+        Add Restaurants
+      </button>
     </div>
   </div>
 
   <!-- Add Hotels Section -->
   <div *ngIf="showHotelSection">
-    <div class="container-fluid page-header mb-5 p-0"
-      style="background-image: url(assets/img/room-1.jpg); background-size: cover; background-position: center;">
-      <div class="container-fluid page-header-inner py-3" style="background: rgba(0, 0, 0, 0.5);">
+    <div
+      class="container-fluid page-header mb-5 p-0"
+      style="
+        background-image: url(assets/img/room-1.jpg);
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div
+        class="container-fluid page-header-inner py-3"
+        style="background: rgba(0, 0, 0, 0.5)"
+      >
         <div class="container text-center py-3">
-          <h1 class="display-3 text-white mb-3 animated slideInDown">Add Hotels</h1>
+          <h1 class="display-3 text-white mb-3 animated slideInDown">
+            Add Hotels
+          </h1>
         </div>
       </div>
     </div>
@@ -91,26 +136,35 @@
       <!-- Hotel Form Inputs -->
       <div class="input-group">
         <label for="hotel-destination">Destination</label>
-        <input type="text" id="hotel-destination" placeholder="City or Hotel Name" [(ngModel)]="destination">
+        <input
+          type="text"
+          id="hotel-destination"
+          placeholder="City or Hotel Name"
+          [(ngModel)]="destination"
+        />
       </div>
       <div class="input-group">
         <label for="checkin-date">Check-In Date</label>
-        <input type="date" id="checkin-date" [(ngModel)]="checkinDate">
+        <input type="date" id="checkin-date" [(ngModel)]="checkinDate" />
       </div>
       <div class="input-group">
         <label for="checkout-date">Check-Out Date</label>
-        <input type="date" id="checkout-date" [(ngModel)]="checkoutDate">
+        <input type="date" id="checkout-date" [(ngModel)]="checkoutDate" />
       </div>
       <div class="input-group">
         <label for="guests">Guests</label>
         <select id="guests" [(ngModel)]="guests">
-          <option *ngFor="let option of guestOptions" [value]="option">{{ option }}</option>
+          <option *ngFor="let option of guestOptions" [value]="option">
+            {{ option }}
+          </option>
         </select>
       </div>
       <div class="input-group">
         <label for="rooms">Rooms</label>
         <select id="rooms" [(ngModel)]="rooms">
-          <option *ngFor="let option of roomOptions" [value]="option">{{ option }}</option>
+          <option *ngFor="let option of roomOptions" [value]="option">
+            {{ option }}
+          </option>
         </select>
       </div>
       <button class="search-btn" (click)="searchHotels()">Search Hotels</button>
@@ -119,7 +173,7 @@
     <section class="hotel-results">
       <!-- Hotel Results -->
       <div *ngFor="let hotel of hotelResults" class="result">
-        <img [src]="hotel.image" alt="Hotel Image" class="hotel-image">
+        <img [src]="hotel.image" alt="Hotel Image" class="hotel-image" />
         <div class="hotel-details">
           <h3>{{ hotel.name }}</h3>
           <p>Location: {{ hotel.location }}</p>
@@ -128,54 +182,72 @@
           <p>Amenities: {{ hotel.amenities }}</p>
         </div>
         <div class="actions">
-          <button class="view-details-btn" (click)="viewDetails(hotel)">View Details</button>
-          <button class="book-btn" (click)="bookHotel(hotel)">Add To Package</button>
+          <button class="book-btn" (click)="addToPackage(hotel, 'hotel')">
+            Add To Package
+          </button>
         </div>
       </div>
     </section>
-
-    <!-- Create Trip Button -->
-    <div class="create-trip-btn-container">
-      <button class="create-trip-btn" (click)="createTrip()">Create Trip</button>
-    </div>
   </div>
 
   <!-- Add Train Section -->
   <div *ngIf="showTrainSection">
-    <div class="container-fluid page-header mb-5 p-0"
-      style="background-image: url(assets/img/train3.jpg); background-size: cover; background-position: center;">
-      <div class="container-fluid page-header-inner py-3" style="background: rgba(0, 0, 0, 0.5);">
+    <div
+      class="container-fluid page-header mb-5 p-0"
+      style="
+        background-image: url(assets/img/train3.jpg);
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div
+        class="container-fluid page-header-inner py-3"
+        style="background: rgba(0, 0, 0, 0.5)"
+      >
         <div class="container text-center py-3">
-          <h1 class="display-3 text-white mb-3 animated slideInDown">Add Trains</h1>
+          <h1 class="display-3 text-white mb-3 animated slideInDown">
+            Add Trains
+          </h1>
         </div>
       </div>
     </div>
 
     <section class="search-panel">
-      <!-- Train Form Inputs -->
       <div class="input-group">
-        <label for="train-from">From</label>
-        <input type="text" id="train-from" placeholder="Departure Station" [(ngModel)]="fromStation">
+        <label for="from">From</label>
+        <input type="text" id="from" placeholder="Departure Station" [(ngModel)]="trainFrom">
       </div>
       <div class="input-group">
-        <label for="train-to">To</label>
-        <input type="text" id="train-to" placeholder="Destination Station" [(ngModel)]="toStation">
+        <label for="to">To</label>
+        <input type="text" id="to" placeholder="Destination Station" [(ngModel)]="trainTo">
       </div>
       <div class="input-group">
         <label for="departure-date">Departure Date</label>
-        <input type="date" id="departure-date" [(ngModel)]="departureDate">
+        <input type="date" id="departure-date" [(ngModel)]="trainDepartureDate">
       </div>
       <div class="input-group">
         <label for="return-date">Return Date (Optional)</label>
-        <input type="date" id="return-date" [(ngModel)]="returnDate">
+        <input type="date" id="return-date" [(ngModel)]="trainReturnDate">
       </div>
-      <div class="triptype">
+      <div class="trip-type">
         <label>
-          <input type="radio" name="trip" value="one-way" [(ngModel)]="flightTripType"> One-Way
+            <input type="radio" name="trip" value="one-way" [(ngModel)]="trainTripType"> One-Way
         </label>
         <label>
-          <input type="radio" name="trip" value="round-trip" [(ngModel)]="flightTripType"> Round-Trip
+          <input type="radio" name="trip" value="round-trip" [(ngModel)]="trainTripType"> Round Trip
         </label>
+      </div>
+      <div class="input-group">
+        <label for="passengers">Passengers</label>
+        <select id="passengers" [(ngModel)]="trainPassengerCount">
+          <option *ngFor="let option of trainPassengerOptions" [value]="option">{{ option }}</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="class">Class</label>
+        <select id="class" [(ngModel)]="trainTravelClass">
+          <option *ngFor="let option of trainClassOptions" [value]="option">{{ option }}</option>
+        </select>
       </div>
       <button class="search-btn" (click)="searchTrains()">Search Trains</button>
     </section>
@@ -183,33 +255,41 @@
     <section class="train-results">
       <!-- Train Results -->
       <div *ngFor="let train of trainResults" class="result">
-        <img [src]="train.image" alt="Train Image" class="train-image">
+        <img [src]="train.image" alt="Train Image" class="train-image" />
         <div class="train-details">
           <h3>{{ train.name }}</h3>
-          <p>Departure: {{ train.departureTime }}</p>
-          <p>Arrival: {{ train.arrivalTime }}</p>
-          <p>Price: ${{ train.price }}</p>
+          <p>Departure: {{ train.departure }} | Arrival: {{ train.arrival }}</p>
+          <p>Duration: {{ train.duration }} | {{ train.stops }}</p>
+          <p>Class: {{ train.classes }}</p>
         </div>
         <div class="actions">
-          <button class="view-details-btn" (click)="viewDetails(train)">View Details</button>
-          <button class="book-btn" (click)="bookTrain(train)">Add To Package</button>
+          <button class="book-btn" (click)="addToPackage(train, 'train')">
+            Add To Package
+          </button>
         </div>
       </div>
     </section>
 
-    <!-- Create Trip Button -->
-    <div class="create-trip-btn-container">
-      <button class="create-trip-btn" (click)="createTrip()">Create Trip</button>
-    </div>
   </div>
 
   <!-- Add Flights Section -->
   <div *ngIf="showFlightSection">
-    <div class="container-fluid page-header mb-5 p-0"
-      style="background-image: url(assets/img/airplane3.jpg); background-size: cover; background-position: center;">
-      <div class="container-fluid page-header-inner py-3" style="background: rgba(0, 0, 0, 0.5);">
+    <div
+      class="container-fluid page-header mb-5 p-0"
+      style="
+        background-image: url(assets/img/airplane3.jpg);
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div
+        class="container-fluid page-header-inner py-3"
+        style="background: rgba(0, 0, 0, 0.5)"
+      >
         <div class="container text-center py-3">
-          <h1 class="display-3 text-white mb-3 animated slideInDown">Add Flights</h1>
+          <h1 class="display-3 text-white mb-3 animated slideInDown">
+            Add Flights
+          </h1>
         </div>
       </div>
     </div>
@@ -218,102 +298,196 @@
       <!-- Flight Form Inputs -->
       <div class="input-group">
         <label for="flight-from">From</label>
-        <input type="text" id="flight-from" placeholder="Departure City" [(ngModel)]="flightFrom">
+        <input
+          type="text"
+          id="flight-from"
+          placeholder="Departure City"
+          [(ngModel)]="flightFrom"
+        />
       </div>
       <div class="input-group">
         <label for="flight-to">To</label>
-        <input type="text" id="flight-to" placeholder="Destination City" [(ngModel)]="flightTo">
+        <input
+          type="text"
+          id="flight-to"
+          placeholder="Destination City"
+          [(ngModel)]="flightTo"
+        />
       </div>
       <div class="input-group">
         <label for="flight-date">Departure Date</label>
-        <input type="date" id="flight-date" [(ngModel)]="flightDate">
+        <input type="date" id="flight-date" [(ngModel)]="flightDate" />
+      </div>
+      <div class="input-group" *ngIf="flightTripType !== 'one-way'">
+        <label for="return">Return Date</label>
+        <input type="date" id="return" [(ngModel)]="returnDate">
       </div>
       <div class="trip-type">
         <label>
-          <input type="radio" name="flight-trip" value="one-way" [(ngModel)]="flightTripType"> One-Way
+          <input
+            type="radio"
+            name="flight-trip"
+            value="one-way"
+            [(ngModel)]="flightTripType"
+          />
+          One-Way
         </label>
         <label>
-          <input type="radio" name="flight-trip" value="round-trip" [(ngModel)]="flightTripType"> Round-Trip
+          <input
+            type="radio"
+            name="flight-trip"
+            value="round-trip"
+            [(ngModel)]="flightTripType"
+          />
+          Round-Trip
         </label>
       </div>
-      <button class="search-btn" (click)="searchFlights()">Search Flights</button>
+      <button class="search-btn" (click)="searchFlights()">
+        Search Flights
+      </button>
     </section>
 
     <section class="flight-results">
       <!-- Flight Results -->
       <div *ngFor="let flight of flightResults" class="result">
-        <img [src]="flight.image" alt="Flight Image" class="flight-image">
+        <img [src]="flight.image" alt="Flight Image" class="flight-image" />
         <div class="flight-details">
           <h3>{{ flight.name }}</h3>
-          <p>Departure: {{ flight.departureTime }}</p>
-          <p>Arrival: {{ flight.arrivalTime }}</p>
-          <p>Price: ${{ flight.price }}</p>
+          <p>Departure: {{ flight.departure }} | Arrival: {{ flight.arrival }}</p>
+          <p>{{ flight.type }} | {{ flight.duration }}</p>
         </div>
         <div class="actions">
-          <button class="view-details-btn" (click)="viewDetails(flight)">View Details</button>
-          <button class="book-btn" (click)="bookFlight(flight)">Add To Package</button>
+          <button class="book-btn" (click)="addToPackage(flight, 'flight')">
+            Add To Package
+          </button>
         </div>
       </div>
     </section>
-
-    <!-- Create Trip Button -->
-    <div class="create-trip-btn-container">
-      <button class="create-trip-btn" (click)="createTrip()">Create Trip</button>
-    </div>
   </div>
 
   <!-- Add Restaurant Section -->
   <div *ngIf="showRestaurantSection">
-    <div class="container-fluid page-header mb-5 p-0"
-      style="background-image: url(assets/img/Restaurant3.png); background-size: cover; background-position: center;">
-      <div class="container-fluid page-header-inner py-3" style="background: rgba(0, 0, 0, 0.5);">
+    <div
+      class="container-fluid page-header mb-5 p-0"
+      style="
+        background-image: url(assets/img/Restaurant3.png);
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div
+        class="container-fluid page-header-inner py-3"
+        style="background: rgba(0, 0, 0, 0.5)"
+      >
         <div class="container text-center py-3">
-          <h1 class="display-3 text-white mb-3 animated slideInDown">Add Restaurants</h1>
+          <h1 class="display-3 text-white mb-3 animated slideInDown">
+            Add Restaurants
+          </h1>
         </div>
       </div>
     </div>
 
     <section class="search-panel">
-      <!-- Restaurant Form Inputs -->
       <div class="input-group">
-        <label for="restaurant-location">Location</label>
-        <input type="text" id="restaurant-location" placeholder="Enter restaurant location"
-          [(ngModel)]="restaurantLocation">
+        <label for="location">Location</label>
+        <input type="text" id="location" placeholder="City or Area" [(ngModel)]="restaurantLocation">
       </div>
       <div class="input-group">
-        <label for="cuisine-type">Cuisine Type</label>
-        <select id="cuisine-type" [(ngModel)]="cuisine">
-          <option *ngFor="let type of cuisine" [value]="type">{{ type }}</option>
+        <label for="date">Date</label>
+        <input type="date" id="date" [(ngModel)]="restaurantDate">
+      </div>
+      <div class="input-group">
+        <label for="time">Time</label>
+        <input type="time" id="time" [(ngModel)]="restaurantTime">
+      </div>
+      <div class="input-group">
+        <label for="guests">Guests</label>
+        <select id="guests" [(ngModel)]="restaurantGuestCount">
+          <option *ngFor="let option of guestOptions" [value]="option">{{ option }}</option>
         </select>
       </div>
-      <button class="search-btn" (click)="searchRestaurants()">Search Restaurants</button>
+      <div class="input-group">
+        <label for="cuisine">Cuisine</label>
+        <select id="cuisine" [(ngModel)]="restaurantCuisine">
+          <option *ngFor="let option of cuisineOptions" [value]="option">{{ option }}</option>
+        </select>
+      </div>
+      <button class="search-btn" (click)="searchRestaurants()">Find Restaurants</button>
     </section>
 
     <section class="restaurant-results">
       <!-- Restaurant Results -->
       <div *ngFor="let restaurant of restaurantResults" class="result">
-        <img [src]="restaurant.image" alt="Restaurant Image" class="restaurant-image">
+        <img
+          [src]="restaurant.image"
+          alt="Restaurant Image"
+          class="restaurant-image"
+        />
         <div class="restaurant-details">
           <h3>{{ restaurant.name }}</h3>
           <p>Location: {{ restaurant.location }}</p>
-          <p>Cuisine: {{ restaurant.cuisine }}</p>
-          <p>Price: ${{ restaurant.price }}</p>
+          <p>Cuisine: {{ restaurant.cuisine }} | {{ restaurant.price }} | ⭐️ {{ restaurant.rating }}</p>
+          <p>Features: {{ restaurant.features }}</p>
         </div>
         <div class="actions">
-          <button class="view-details-btn" (click)="viewDetails(restaurant)">View Details</button>
-          <button class="book-btn" (click)="bookRestaurant(restaurant)">Add To Package</button>
+          <button
+            class="book-btn"
+            (click)="addToPackage(restaurant, 'restaurant')"
+          >
+            Add To Package
+          </button>
         </div>
       </div>
     </section>
-    <section>
-      <!-- Create Trip Button -->
-      <div class="create-trip-btn-container">
-        <button class="create-trip-btn" (click)="createTrip()">Create Trip</button>
-      </div>
-    </section>
-
-
-
   </div>
+
+  <section *ngIf="packages.length > 0">
+    <div class="container">
+      <h1 class="text-center mt-5">Trip Package Management</h1>
+      <!-- Trip Packages Table -->
+      <section class="package-table">
+        <div class="container">
+          <h3 class="text-center">Added Packages</h3>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                  <input
+                    type="text"
+                    [(ngModel)]="packageName"
+                    style="width: 100%;"
+                    class="form-control input-group"
+                    placeholder="Package Name"
+                  />
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let package of packages">
+                <td>
+                  {{ package.name }}
+                </td>
+
+                <!-- Delete Button -->
+                <td>
+                  <button
+                    class="btn btn-danger"
+                    (click)="removePackage(package)"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Create Package Button -->
+        <div class="create-trip-btn-container">
+          <button class="create-trip-btn" (click)="createPackage()">
+            Create Package
+          </button>
+        </div>
+      </section>
+    </div>
+  </section>
 
 </div>
