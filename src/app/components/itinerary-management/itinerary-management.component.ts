@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router'; // Import Router for navigation
+import { PackagesService } from '../../services/packages.service';
+import { UserprofileService } from '../../services/userprofile.service';
+import { HotelBookingService } from '../../services/hotel-booking.service';
+import { FlightBookingService } from '../../services/flight-booking.service';
+import { RestaurantBookingService } from '../../services/restaurant-booking.service';
+import { TrainReservationService } from '../../services/train-reservation.service';
 
 @Component({
   selector: 'app-itinerary-management',
@@ -7,6 +13,9 @@ import { Router } from '@angular/router'; // Import Router for navigation
   styleUrls: ['./itinerary-management.component.css']
 })
 export class ItineraryManagementComponent {
+  userName = "";
+  userEmail = "";
+
   // Trip basic details
   currentLocation: string = '';
   destination: string = '';
@@ -21,14 +30,14 @@ export class ItineraryManagementComponent {
   flightClass: string = 'Economy';
 
   // Flight trip type (One-way or Round-trip)
-  flightTripType: string = 'one-way';  // Default value, could be 'one-way' or 'round-trip'
+  flightTripType: string = 'one-way'; // Default value, could be 'one-way' or 'round-trip'
 
   // Cuisine type (for restaurants)
-  cuisine: string = '';  // Default empty value
-  cuisineOptions: string[] = ['Italian', 'Chinese', 'Indian', 'Mexican'];  // List of available cuisines
+  cuisine: string = ''; // Default empty value
+  cuisineOptions: string[] = ['Italian', 'Chinese', 'Indian', 'Mexican']; // List of available cuisines
 
   // Toggle properties for each section
-  showHotelSection: boolean = false;
+  showHotelSection: boolean = true;
   showTrainSection: boolean = false;
   showFlightSection: boolean = false;
   showRestaurantSection: boolean = false;
@@ -38,6 +47,13 @@ export class ItineraryManagementComponent {
   trainAdded: boolean = false;
   flightAdded: boolean = false;
   restaurantAdded: boolean = false;
+
+  ngOnInit(): void {
+    this.userprofileService.getUserProfile().subscribe((data: { email: string; firstName: string; lastName: string; }) => {
+      this.userEmail = data.email;
+      this.userName = data.firstName + ' ' + data.lastName;
+    });
+  }
 
   // Toggle method to control section visibility
   togglePackageSection(section: string) {
@@ -73,6 +89,7 @@ export class ItineraryManagementComponent {
   }
 
   // Hotel search fields
+  hotelDestination: string = '';
   checkinDate: string = '';
   checkoutDate: string = '';
   guests: number = 1;
@@ -80,7 +97,15 @@ export class ItineraryManagementComponent {
   guestOptions = [1, 2, 3, 4, 5];
   roomOptions = [1, 2, 3, 4];
   hotelResults = [
-    { image: 'path/to/image', name: 'Hotel Sunshine', location: 'City Center', rating: 4.5, price: 120, amenities: 'Free Wi-Fi, Pool, Gym' }
+    {
+      id: '1',
+      image: 'hotel-image.jpg',
+      name: 'Hotel Sunshine',
+      location: 'City Center',
+      rating: '⭐️⭐️⭐️⭐️ | 8.5/10 Excellent',
+      price: 120,
+      amenities: 'Free Wi-Fi, Pool, Gym',
+    },
   ];
 
   // Flight search fields
@@ -93,144 +118,166 @@ export class ItineraryManagementComponent {
   passengerOptions = [1, 2, 3, 4, 5];
   classOptions = ['Economy', 'Business', 'First Class'];
   flightResults = [
-    { 
-      logo: 'path/to/logo', 
-      airline: 'Airways A', 
-      departureTime: '10:00 AM', 
-      arrivalTime: '2:00 PM', 
-      flightType: 'Non-stop', 
-      duration: '4h', 
-      price: 300, 
-      image: 'path/to/flight-image.jpg',
-      name: 'Flight A',                  
-      stops: 'Non-stop',                 
-      class: 'Economy',
-      route: 'New York to LA'          
-    }
+    {
+      id: '1',
+      image: 'airline-logo.png',
+      name: 'Airline Name',
+      departure: '10:00 AM',
+      arrival: '1:00 PM',
+      type: 'Non-stop',
+      duration: '3h',
+      price: 250
+    },
   ];
 
   // Train search fields
-  fromStation: string = '';
-  toStation: string = '';
-  departureDateTrain: string = '';
-  passengerCount: number = 1;
+  trainFrom = '';
+  trainTo = '';
+  trainDepartureDate = '';
+  trainReturnDate = '';
+  trainPassengerCount = '1 Adult';
+  trainTravelClass = 'General';
+  trainTripType = 'one-way';
+  trainPassengerOptions = ['1 Adult', '2 Adults', '3 Adults', '4 Adults'];
+  trainClassOptions = ['General', 'Sleeper', 'AC 3-Tier', 'AC 2-Tier', 'First Class'];
   trainResults = [
-    { 
-      icon: 'path/to/icon', 
-      name: 'Express Train', 
-      departureTime: '8:00 AM', 
-      arrivalTime: '12:00 PM', 
-      duration: '4h', 
-      stops: 'Non-stop', 
-      classes: 'AC First Class', 
-      price: 50,
-      image: 'path/to/train-image.jpg',
-      route: 'Station A to Station B'
-    }
+    {
+      id: '1',
+      image: 'train-icon.png',
+      name: 'Express Train 12345',
+      departure: '9:00 AM',
+      arrival: '3:00 PM',
+      duration: '6h',
+      stops: 'Non-stop',
+      classes: 'AC 3-Tier, Sleeper',
+      price: 45
+    },
   ];
 
   // Restaurant search fields
   restaurantLocation: string = '';
   restaurantDate: string = '';
+  restaurantTime: string = '';
+  restaurantGuestCount: number = 1;
+  restaurantCuisine: string = '';
   restaurantResults = [
-    { name: 'Restaurant A', location: 'City Center', cuisine: 'Italian', rating: 4.5, price: 40, image: 'path/to/restaurant-image.jpg' }
+    {
+      id: '1',
+      image: 'restaurant-image.jpg',
+      name: 'Restaurant Name',
+      location: 'Downtown',
+      cuisine: 'Italian',
+      price: '$$',
+      rating: 4.5,
+      features: 'Outdoor Seating, Vegetarian Options'
+    }
   ];
 
-  // Dummy trip package structure to hold selected items
-  tripPackage = {
-    hotels: [],
-    flights: [],
-    trains: [],
-    restaurants: []
-  };
-
-  // Methods for managing trip packages
-  addPackage() {
-    console.log('Adding package with basic trip details:', {
-      currentLocation: this.currentLocation,
-      destination: this.destination,
-      travelDate: this.travelDate,
-      numberOfPeople: this.numberOfPeople
-    });
-  }
+  packages: any[] = []
+  packageName = ""
 
   // Hotel-related methods
   searchHotels() {
-    console.log('Searching hotels in:', this.destination, 'from', this.checkinDate, 'to', this.checkoutDate);
-  }
+    const searchData = {
+      dest: this.hotelDestination,
+      checkin: this.checkinDate,
+      checkout: this.checkoutDate,
+      guests: this.guests,
+      rooms: this.rooms,
+    };
 
-  viewHotelDetails(hotel: any) {
-    console.log('Viewing details for hotel:', hotel);
-  }
-
-  bookHotel(hotel: any) {
-    this.tripPackage.hotels.push(); // Add hotel to trip package
-    this.hotelAdded = true; // Mark hotel as added
-    console.log('Hotel added to package:', hotel);
-    console.log('Current trip package:', this.tripPackage);
+    this.hotelService.searchHotels(searchData).subscribe((data: any) => {
+      this.hotelResults = data;
+    });
   }
 
   // Flight-related methods
   searchFlights() {
-    console.log('Searching flights from:', this.departureAirport, 'to:', this.arrivalAirport, 'Departure:', this.flightDate);
+
+    const searchData = {
+      from: this.flightFrom,
+      to: this.flightTo,
+      departureDate: this.departureDate,
+      returnDate: this.returnDate,
+      tripType: this.flightTripType,
+    };
+
+    this.flightService.searchFlights(searchData).subscribe((data: any) => {
+      this.flightResults = data;
+    });
   }
 
-  viewFlightDetails(flight: any) {
-    console.log('Viewing flight details:', flight);
-  }
-
-  bookFlight(flight: any) {
-    this.tripPackage.flights.push(); // Add flight to trip package
-    this.flightAdded = true; // Mark flight as added
-    console.log('Flight added to package:', flight);
-    console.log('Current trip package:', this.tripPackage);
-  }
 
   // Train-related methods
   searchTrains() {
-    console.log('Searching trains from:', this.fromStation, 'to:', this.toStation, 'Departure:', this.departureDateTrain);
-  }
-
-  viewTrainDetails(train: any) {
-    console.log('Viewing train details:', train);
-  }
-
-  bookTrain(train: any) {
-    this.tripPackage.trains.push(); // Add train to trip package
-    this.trainAdded = true; // Mark train as added
-    console.log('Train added to package:', train);
-    console.log('Current trip package:', this.tripPackage);
+    const searchData = {
+      from: this.trainFrom,
+      to: this.trainTo,
+      departureDate: this.trainDepartureDate,
+      returnDate: this.trainReturnDate,
+      tripType: this.trainTripType,
+      passengers: this.trainPassengerCount,
+      travelClass: this.trainTravelClass
+    };
+    this.trainService.searchTrains(searchData).subscribe((data: any) => {
+      this.trainResults = data;
+    });
   }
 
   // Restaurant-related methods
   searchRestaurants() {
-    console.log('Finding restaurants in:', this.restaurantLocation, 'on', this.restaurantDate);
+
+    const searchData = {
+      location: this.restaurantLocation,
+      date: this.restaurantDate,
+      time: this.restaurantTime,
+      guests: this.restaurantGuestCount,
+      cuisine: this.restaurantCuisine,
+    };
+
+    this.restaurantService.searchRestaurants(searchData).subscribe((data: any) => {
+      this.restaurantResults = data;
+    });
   }
 
-  viewRestaurantDetails(restaurant: any) {
-    console.log('Viewing restaurant details:', restaurant);
+  // Method to remove a package
+  removePackage(packageToRemove: any): void {
+    const index = this.packages.indexOf(packageToRemove);
+    if (index !== -1) {
+      this.packages.splice(index, 1); // Remove the package from the array
+    }
   }
 
-  bookRestaurant(restaurant: any) {
-    this.tripPackage.restaurants.push(); // Add restaurant to trip package
-    this.restaurantAdded = true; // Mark restaurant as added
-    console.log('Restaurant added to package:', restaurant);
-    console.log('Current trip package:', this.tripPackage);
+  // Method to create a package (or perform any necessary logic)
+  createPackage(): void {
+    if(this.packageName == ""){
+      alert("Please enter a package name")
+      return
+    }
+
+    this.packagesService.createPackage({name: this.packageName, packages: this.packages}).subscribe((response: { response: string; }) => {
+      if(response.response == "saved") {
+        alert("Package created successfully")
+        this.packages = []
+      } else {
+        alert("Error creating package")
+      }
+    });
   }
 
-  // Method to view details of an item (to fix the missing method error)
-  viewDetails(item: any) {
-    console.log('Viewing details for:', item);
-    // Logic to display item details or trigger a modal/dialog could be added here
+  addToPackage(item: any, type: string) {
+    item.ptype = type
+    this.packages.push(item)
   }
 
-  // Method to handle the "Create Trip" button click
-  createTrip() {
-    console.log('Trip details:', this.tripPackage);
-    // Navigate to the trip detail page with the selected package
-    this.router.navigate(['/trip-detail'], { state: { tripPackage: this.tripPackage } });
+  addPackage() {
+    console.log('Adding package with details:', this.tripPackage);
   }
+  tripPackage(arg0: string, tripPackage: any) {
+    throw new Error('Method not implemented.');
+  }
+  
 
   // Constructor to inject the Router service for navigation
-  constructor(private router: Router) {}
+  constructor(private router: Router, private packagesService: PackagesService, private userprofileService: UserprofileService, private hotelService: HotelBookingService, private flightService: FlightBookingService, private restaurantService: RestaurantBookingService, private trainService: TrainReservationService) {}
 }
