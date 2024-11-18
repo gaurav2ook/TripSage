@@ -732,8 +732,8 @@ header .profile-icon {
   box-shadow: 0 0 0 3px rgba(214, 168, 4, 0.5); /* Focus effect */
 }
 
-/* Create Trip Button Container */
-.create-trip-btn-container {
+ /* Create Trip Button Container */
+ .create-trip-btn-container {
   position:static;
   bottom: 80px; /* Adjust this value to ensure it's above the footer */
   left: 50%;
@@ -767,4 +767,112 @@ header .profile-icon {
   box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Highlight on focus */
 }
 
+
+/* Package Table Styling */
+.package-table {
+margin-top: 30px;
+}
+
+.package-table .table {
+width: 100%;
+border-collapse: collapse;
+margin-bottom: 20px;
+}
+
+.package-table th,
+.package-table td {
+padding: 10px;
+text-align: left;
+}
+
+.package-table tr:nth-child(even) {
+background-color: #f2f2f2;
+}
+
+/* Remove Button */
+.package-table .btn-danger {
+background-color: #e07a00;
+color: white;
+border: none;
+padding: 5px 10px;
+cursor: pointer;
+}
+
+.package-table .btn-danger:hover {
+background-color: #c77b00;
+}
+
+/* Create Package Button */
+.create-trip-btn-container {
+text-align: center;
+margin-top: 20px;
+}
+
+.create-trip-btn {
+padding: 12px 24px;
+background-color: #fea116;
+color: white;
+border: none;
+border-radius: 5px;
+font-size: 16px;
+cursor: pointer;
+}
+
+.create-trip-btn:hover {
+background-color: #e07a00;
+}
+
+/* Package Table Styling */
+.package-table {
+margin-top: 30px;
+}
+
+.package-table .table {
+width: 100%;
+border-collapse: collapse;
+margin-bottom: 20px;
+}
+
+.package-table th,
+.package-table td {
+padding: 10px;
+text-align: left;
+}
+
+.package-table tr:nth-child(even) {
+background-color: #f2f2f2;
+}
+
+/* Remove Button */
+.package-table .btn-danger {
+background-color: #e07a00;
+color: white;
+border: none;
+padding: 5px 10px;
+cursor: pointer;
+}
+
+.package-table .btn-danger:hover {
+background-color: #c77b00;
+}
+
+/* Create Package Button */
+.create-trip-btn-container {
+text-align: center;
+margin-top: 20px;
+}
+
+.create-trip-btn {
+padding: 12px 24px;
+background-color: #fea116;
+color: white;
+border: none;
+border-radius: 5px;
+font-size: 16px;
+cursor: pointer;
+}
+
+.create-trip-btn:hover {
+background-color: #e07a00;
+}
 
