@@ -238,9 +238,10 @@ body, html {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    background: #FFFFFF;
-    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    background: #0f172b;
+    box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
     transition: .5s;
+    
 }
 
 .service-item:hover {
@@ -256,15 +257,26 @@ body, html {
 
 .service-item i,
 .service-item h5,
-.service-item p {
+.service-item p { 
     transition: .5s;
+    color: #F1F8FF;
 }
 
 .service-item:hover i,
 .service-item:hover h5,
 .service-item:hover p {
-    color: #FFFFFF !important;
+    color: #fea116 !important;
 }
+
+.service-border {
+    border: 2px solid #fea116; /* Replace with any desired color */
+    transition: border-color 0.3s ease;
+  }
+  
+  .service-border:hover {
+    border-color: #955b04; /* Darker shade on hover */
+  }
+  
 
 /*** Testimonial ***/
 .testimonial {
@@ -312,6 +324,7 @@ body, html {
 
 .testimonial-carousel .owl-nav .owl-prev:hover,
 .testimonial-carousel .owl-nav .owl-next:hover {
+    
     color: var(--primary);
     background: #FFFFFF;
 }
