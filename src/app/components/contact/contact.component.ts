@@ -1,16 +1,21 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.css'
+  styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-
   contactForm: FormGroup;
+  isSubmitting: boolean = false;
+  successMessage: string = '';
+  errorMessage: string = '';
 
-  constructor(private fb: FormBuilder) {
+  private formspreeEndpoint = 'https://formspree.io/f/mgveyjyj';
+
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -21,11 +26,23 @@ export class ContactComponent {
 
   onSubmit() {
     if (this.contactForm.valid) {
-      // Handle form submission
-      console.log('Form Submitted!', this.contactForm.value);
+      this.isSubmitting = true;
+      this.successMessage = '';
+      this.errorMessage = '';
+
+      this.http.post(this.formspreeEndpoint, this.contactForm.value).subscribe({
+        next: () => {
+          this.isSubmitting = false;
+          this.successMessage = 'Your message has been sent successfully!';
+          this.contactForm.reset();
+        },
+        error: (error) => {
+          this.isSubmitting = false;
+          this.errorMessage = 'There was an error sending your message. Please try again later.';
+        }
+      });
     } else {
-      console.log('Form not valid');
+      this.errorMessage = 'Please fill in all the required fields.';
     }
   }
-
 }
