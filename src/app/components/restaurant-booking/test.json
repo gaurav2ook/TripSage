@@ -1,0 +1,211 @@
+[
+    {
+        "type": "vacation rental",
+        "name": "Matoshri Homestay Airport Road",
+        "gps_coordinates": {
+            "latitude": 21.110929489135742,
+            "longitude": 79.06659698486328
+        },
+        "check_in_time": "11:00 AM",
+        "check_out_time": "11:00 AM",
+        "nearby_places": [
+            {
+                "name": "Dr. Babasaheb Ambedkar International Airport",
+                "transportations": [
+                    {
+                        "type": "Taxi",
+                        "duration": "10 min"
+                    }
+                ]
+            },
+            {
+                "name": "Flavours Restaurant",
+                "transportations": [
+                    {
+                        "type": "Walking",
+                        "duration": "4 min"
+                    }
+                ]
+            }
+        ],
+        "images": [
+            {
+                "thumbnail": "https://lh5.googleusercontent.com/proxy/G_TV7SQjjMGsm6Ph45B5ORLAA9jHTdfksFqwuELC1h4KLAeKfLz_q3eWOUIOFkzUnzYyAPDaq75bdbplQjxuSDjtL8JveFtca-nsfuQaEsXtECoFBciDNLaTESAH09hyezObQ5wfWRWhyqVniA_tx4gwjx-FdMI=s287-w287-h192-n-k-no-v1",
+                "original_image": "https://p.fih.io/v2/nSr0o-3gbZN8o1xMecXCcG-BkDeQVo3k-wOeVogkTe7ajuFOX7O-WA8aRWhXz1jsToZif_TsA_xCWfhWRa0Zi5bupTcv1iZkMg62QbVI0DvDi1TjILObpx3hcKLaoq-xIjBC2JrGV23BLTF4en3ketkYyx1j1dLbUfhlOgkNcIcn9PwNtk_AU2csbUk6dd9sHrY9VmP2oVsLB5Ip-_d7po4WFPszFWsfHTvuc4xTrvHevyZymHCUquEZUr_G51U7RK7_LuhMBMNC7B9p3eMgJw"
+            },
+            {
+                "thumbnail": "https://lh3.googleusercontent.com/proxy/p6p1K4rjEZ_kPiZMSnAVsCrde3-TTXJVvJ6MW3ii-xUccdgTUnoEX0KdLSa8yOoeFc8lD8q7L7npJNs02LlucnsVxmZ8n2hmpCguPvmVgtsRN9GCd35aTaKXP42mcCkXT-sWmOKI5Ah7JHG7xrZB1QrC2ZQuRw=s287-w287-h192-n-k-no-v1",
+                "original_image": "https://q-xx.bstatic.com/xdata/images/hotel/max1440x1080/82651494.jpg?k=6dc56eaab3fe6331f762fdedf4722c9b949eafe5a07ffd7b9207c57c0ca78719&o="
+            },
+            {
+                "thumbnail": "https://lh6.googleusercontent.com/proxy/WDXWjGJMqr403Lbrg8hSV4CzOt69tAnn9RgDdDH1ABLEvXeCtnUFOQMHN98h1e_Q7nFROK__5Mq2SgEh-Ci1gKyGZzPZkthVGogM3FBIAOTYsc2pZ7CFAARczvI6n3FTM60gjkbpGtN4L7xvbWik6dzibZoIbQ=s287-w287-h192-n-k-no-v1",
+                "original_image": "https://q-xx.bstatic.com/xdata/images/hotel/max500/82651436.jpg?k=54b2304b64535f8afb415b1a77fe3173f075848a3ad23370751aa0de79310b58&o="
+            },
+            {
+                "thumbnail": "https://lh3.googleusercontent.com/proxy/ughQnTy1hdMBxLv4szKS-nqcCscFQZI0d2rEKSm64oZTnRg6ALAYRYhsGID0pXxkTk63DstG1IzRBn5ekEtPnmRLwM5Q8w10r9CCLkz2D1G03FAfjJbRuQ3x-1mD1ogr7yirn_Y_E6X2365qOsxnbFtD-58OYiA=s287-w287-h192-n-k-no-v1",
+                "original_image": "https://p.fih.io/v2/nSr0o-3gbZN8o1xMecXCcG-BkDeQVo3k-wOeVogkTe7ajuFOX7O-WA8aRWhXz1jsToZif_TsA_xCWfhWRa0Zi8ONoXp41CEYByiPYaFp1hPu7HXBJIC8_UHRL9GjiJ-USSJDqYK5ImqzLTF4en3ketkYyx1j1dLbUfhlOgkNcIcn9PwNtk_AU2csbUk6dd9sHrY9VmP2oVsLB5Ip-_d7po4WFPszFWsfHTvuc4xTrvHevyZynXCUquEZUr_G51U7hLgxYdPqOzX2tFMQJQaCsA"
+            },
+            {
+                "thumbnail": "https://lh4.googleusercontent.com/proxy/dYo8vkEN4WCLyFw_YwVOX4W6s9sKzwBXC2wPyOK2ETMbhrAbnXPsFX4Xrz-q0nBfO6A6aov6IL6UxB71LjjIBShH_zoz5L_QhyFerxCfhMCyxoieXVvs2uU-lEyThIwqgeha4MAsTa_-KtFkGQ4bVxsnQbme_eU=s287-w287-h192-n-k-no-v1",
+                "original_image": "https://p.fih.io/v2/nSr0o-3gbZN8o1xMecXCcG-BkDeQVo3k-wOeVogkTe7ajuFOX7O-WA8aRWhXz1jsToZif_TsA_xCWfhWRa0Zg5m14ico1lAaaTmjRoZZ8wDHjjzBJOyIuxXtHtXgrKunSCgRz5b9LWDoJTF4en3ketkYyx1j1dLbUfhlOgkNcIcn9PwNtk_AU2csbUk6dd9sHrY9VmP2oVsLB5Ip-_d7po4WFPszFWsfHTvuc4xTrvHevyZEnXCUquEZUr_G51U7Q-UdXf5W4fkOYUtTd9nkng"
+            },
+            {
+                "thumbnail": "https://lh5.googleusercontent.com/proxy/tPpth4v4DezM0ZPs9_2vL43PW436Q83fVt0tEBjsxGWsH7gsKAIkwg392KGyTPgUmrxGNp6MBUEP6Q8m0LV2N5-ESwnDxAgjTdJViIJsY5wXid1R0UFKRg7jWhpStN-dhXd9ANJso3G6WGw40-e0ZH6hYXU-lhE=s287-w287-h192-n-k-no-v1",
+                "original_image": "https://q-xx.bstatic.com/xdata/images/hotel/max500/82651646.jpg?k=58436c2f2c5670c81de30f4e0f3f486dfc75a4fae17b8165c732d6fac49b72b6&o="
+            },
+            {
+                "thumbnail": "https://lh6.googleusercontent.com/proxy/B0GXvI-jf07gitP8BqruGAaN7pfQfEGcySmQYVb3PBmWFHN2xuvMIO_wiAr4bDPHXbRMKHNsATcR6ZSUOTteo7swSWghs0GntlD36rbOfu4XFkts4tO4MFEmm1JUjycGeXSlnfUAavkvh7qUCY3SswOMhOQBuGM=s287-w287-h192-n-k-no-v1",
+                "original_image": "https://pix8.agoda.net/hotelImages/167/1670573/1670573_17022118160051164588.jpg?ca=6&ce=1"
+            },
+            {
+                "thumbnail": "https://lh5.googleusercontent.com/proxy/G0SNMvkwiHetQuxen23qZdeIPZMMXycMTsuFlR_BCngWdq2THpYVEFMWuQSw77vbhPASVxmCAIudrpnyCsajgHJ6sVkkgPlOhPK_ZWSUazSX5kMDAPaOFgLolP5fJZY1Rzg6OOdsRvqDSFDbp-FF9f2T2LjtuQ=s287-w287-h192-n-k-no-v1",
+                "original_image": "https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/88952518.jpg?k=02b28c6c1bdbf06b07548748a1d093e75a043acb25b5c1bb6c923e46e71f2b3c&o="
+            },
+            {
+                "thumbnail": "https://lh5.googleusercontent.com/proxy/fQSLwd43NXojITC2mMUmwoIECEcDqTn-s4nTLUBDeEaXceaMAwe9U3MPq8ObBnTqua3zjBFRFNaoOmwnHLElgrPPHxwZcBGETTtBCsPU3p5T3has0F0ayOwj7iWywR-W3sO3Q4De-H-axewJF-akzL4Q7L3K7o8=s287-w287-h192-n-k-no-v1",
+                "original_image": "https://q-xx.bstatic.com/xdata/images/hotel/max500/82651324.jpg?k=510fae794ffe31724bfff2620afcaa1487cf7691c60669bb5be35933b9f561b0&o="
+            }
+        ],
+        "overall_rating": 3.2999997,
+        "reviews": 83,
+        "location_rating": 4.2,
+        "amenities": [
+            "Air conditioning",
+            "Kid-friendly",
+            "Crib",
+            "Fitness center",
+            "Kitchen",
+            "Pet-friendly",
+            "Smoke-free",
+            "Cable TV",
+            "Washer",
+            "Wheelchair accessible",
+            "Free parking",
+            "Free Wi-Fi"
+        ],
+        "excluded_amenities": [
+            "No airport shuttle",
+            "No balcony",
+            "No beach access",
+            "No elevator",
+            "No fireplace",
+            "No heating",
+            "No hot tub",
+            "No indoor pool",
+            "No ironing board",
+            "No microwave",
+            "No outdoor grill",
+            "No outdoor pool",
+            "No oven stove",
+            "No patio"
+        ],
+        "essential_info": [
+            "Entire bungalow",
+            "Sleeps 2",
+            "8 bedrooms",
+            "9 bathrooms",
+            "1 bed",
+            "500 sq ft"
+        ],
+        "property_token": "ChoQqZiYrvuWit75ARoNL2cvMTF2aHk1ZG00NRAC",
+        "serpapi_property_details_link": "https://serpapi.com/search.json?adults=5&bedrooms=6&check_in_date=2024-11-20&check_out_date=2024-11-21&children=0&currency=USD&engine=google_hotels&gl=us&hl=en&property_token=ChoQqZiYrvuWit75ARoNL2cvMTF2aHk1ZG00NRAC&q=nagpur&vacation_rentals=true"
+    },
+    {
+        "type": "vacation rental",
+        "name": "SANJOG Home",
+        "gps_coordinates": {
+            "latitude": 21.17312240600586,
+            "longitude": 79.03650665283203
+        },
+        "check_in_time": "12:00 PM",
+        "check_out_time": "10:00 AM",
+        "nearby_places": [
+            {
+                "name": "Dr. Babasaheb Ambedkar International Airport",
+                "transportations": [
+                    {
+                        "type": "Taxi",
+                        "duration": "30 min"
+                    }
+                ]
+            },
+            {
+                "name": "Chinese Food",
+                "transportations": [
+                    {
+                        "type": "Walking",
+                        "duration": "10 min"
+                    }
+                ]
+            }
+        ],
+        "images": [
+            {
+                "thumbnail": "https://lh3.googleusercontent.com/proxy/6rFjM2jEVucJ6U_BCg0pu6g_Xt8AYzbJzWnKMLtI5rSzPLT6yH5-bwXG6XgQre4vVMqjsMDaTiUX87Qq-NF0-ZKC1T_RbWnlwowaZFhVD6YABDcASfL8HMhIGjLubyRxbB9zrDxZrMGP5lllGtn-SzNI-DtzPbI=s287-w287-h192-n-k-no-v1",
+                "original_image": "https://gos3.ibcdn.com/a1ba49e23f9b11eb97540242ac110003.jpg"
+            },
+            {
+                "thumbnail": "https://lh4.googleusercontent.com/proxy/Tt6UbStj0ZCHEhHms6AaM-M2PosznWmSFrYxTJ-uDBshbrHxhD1f15FYDSY4MGKr7j3e5BS-SafwrYabTWHnRcqY_4RBmVUdbXhmyRvk5kCMpzcQr0jmePH-kvFahDvbZJF_9tuI2ODFi6lgpquNSfS6-OJA0w=s287-w287-h192-n-k-no-v1",
+                "original_image": "https://gos3.ibcdn.com/6f411b3c941f11e8b7cf0ac89a1b4c4e.jpg"
+            },
+            {
+                "thumbnail": "https://lh5.googleusercontent.com/proxy/ha45cp-1M04MhO_444TcIK5Pha7iohLChErVRF_k7WCZ1oLGqC_I6bzwnenhXOPGeZsSnQa6JWndu5t7rJuZd9L0-VKznLqpUMGYRKXn_WESg9RReZ7ERn-ziZyafE0lPRx1sbHDDT-giZyZh6Tyf30x58f1Dy0=s287-w287-h192-n-k-no-v1",
+                "original_image": "https://gos3.ibcdn.com/7e28528cc66911e9b4710242ac110007.jpg"
+            },
+            {
+                "thumbnail": "https://lh4.googleusercontent.com/proxy/Q2WH7jm7q6qWgjkd5I1jXYqa5DUGK3kMEKuhg1RZe8x9N12beg4p1LZME-oxYLHQfppGQ-TFTxfI0_4bfzYiS-eoFAYdlnB7_nSZDOllLez6WC1FHfl23HXfkeMOP85gR_D7n_vtW7AJwAtu1Z7SLxz_cF6T8w=s287-w287-h192-n-k-no-v1",
+                "original_image": "https://gos3.ibcdn.com/548fd7d6c5a911e89788023b42bcea16.jpg"
+            },
+            {
+                "thumbnail": "https://lh3.googleusercontent.com/proxy/TBHgtZih6ka2lzzEeDs5z5I8C2sXZmKMC6Y7j7L2qjz55nTpFQoZJOU7tlHuKWFRRFx1tataq7zTnblzsiwMKDY2YSJ3P9fB2KdpNv67kt5KB1SsZXh_twDe_NQUp-TAHzDVqfTiuzfqipKbvkatvy9zegzwpg=s287-w287-h192-n-k-no-v1",
+                "original_image": "https://gos3.ibcdn.com/4edb6420577911edbb290a58a9feac02.jpg"
+            },
+            {
+                "thumbnail": "https://lh5.googleusercontent.com/proxy/cVXgaAgWAIN4oVaSngjpIgzL3zIfRCRZLgtWgm5f2ZJ8ezK41rODhht8x0JeieAD5mBrmB-utT3HlFBZuxr9ebAgS_3OLU1JtS8wm-7DgcMZA1LI1TJh1wK9l_VRX3J7Vn5HomHAvuNt-6LfR9_KiFMb4t10rg=s287-w287-h192-n-k-no-v1",
+                "original_image": "https://gos3.ibcdn.com/06f69082c5a911e8aff60224510f5e5b.jpg"
+            },
+            {
+                "thumbnail": "https://lh4.googleusercontent.com/proxy/WSGV37342Up_G7WMFz3IDtsExgt_v9eplIeAzdKHK_3VBoLQ_nJw2oqamcCVm60reNVsXJSSP1y7EPF2Qvfgka1g9lZQBwDqPFXJeeqhLIwO0O9c4kfjLyA7928ZL51YXAKKoCuHN42tmbfpfmb2lhxplTT_o3U=s287-w287-h192-n-k-no-v1",
+                "original_image": "https://gos3.ibcdn.com/61169c52adac11e8864b0a9df65c8753.jpg"
+            },
+            {
+                "thumbnail": "https://lh4.googleusercontent.com/proxy/enPWGh49dWOUyHzIl6AM_CQJY87l5cr4gvMQ5mV8qhljHO24wK2Z_Vjkk8nzyj0JHwICuWgIV_b6kCgmLRakXVhDkwje9vPMv2NwAbKv3XKtTjFH8RM323r4dDZRHbtSVN0wcQr3EKrRjZGBrDNl_YuSlJX0-7E=s287-w287-h192-n-k-no-v1",
+                "original_image": "https://gos3.ibcdn.com/ffff992ac66c11e988db0242ac110003.jpg"
+            },
+            {
+                "thumbnail": "https://lh6.googleusercontent.com/proxy/rMLK3F4CDiG6xbFE9GZ9kbsbTKqE-nOlORJm8YZmwmKNVpUy0bZwHf8MBYUpf0UGi3Nitv6ltDeViW-Xz_QprzozMn-q-Jgxijxsydn0cYHy6W5Msgv62-7rusj-HFZPfJxbVWa81hK7DQd8mhdjVHz2hWuLmqo=s287-w287-h192-n-k-no-v1",
+                "original_image": "https://gos3.ibcdn.com/c4797888adab11e8b6f302cd73882098.jpg"
+            }
+        ],
+        "overall_rating": 4,
+        "reviews": 6,
+        "location_rating": 3.2,
+        "amenities": [
+            "Air conditioning",
+            "Fireplace",
+            "Cable TV",
+            "Paid parking",
+            "Free Wi-Fi"
+        ],
+        "excluded_amenities": [
+            "No crib",
+            "No elevator",
+            "No fitness center",
+            "No ironing board",
+            "No kitchen",
+            "No microwave",
+            "No outdoor grill",
+            "No oven stove",
+            "Not pet-friendly",
+            "Not smoke-free",
+            "No washer",
+            "Not wheelchair accessible"
+        ],
+        "essential_info": [
+            "Sleeps 19",
+            "6 bedrooms"
+        ],
+        "property_token": "ChoQ27HXvO3n5MWRARoNL2cvMTFzc2dkNW1uehAC",
+        "serpapi_property_details_link": "https://serpapi.com/search.json?adults=5&bedrooms=6&check_in_date=2024-11-20&check_out_date=2024-11-21&children=0&currency=USD&engine=google_hotels&gl=us&hl=en&property_token=ChoQ27HXvO3n5MWRARoNL2cvMTFzc2dkNW1uehAC&q=nagpur&vacation_rentals=true"
+    }
+]

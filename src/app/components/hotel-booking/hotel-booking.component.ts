@@ -34,6 +34,15 @@ export class HotelBookingComponent {
   ];
 
   searchHotels() {
+
+    if(this.destination === '' || this.checkinDate === '' || this.checkoutDate === '') {
+      alert('Please fill in all the fields');
+      return;
+    } else if(this.checkinDate >= this.checkoutDate) {
+      alert('Check-in date should be before check-out date');
+      return;
+    }
+
     const searchData = {
       dest: this.destination,
       checkin: this.checkinDate,
