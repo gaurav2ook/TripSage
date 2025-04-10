@@ -54,6 +54,10 @@ export class CreateNewPackageComponent implements OnInit {
       this.adminEmail = data.email;
       this.adminName = data.firstName + ' ' + data.lastName;
     });
+    this.packagesService.getManualPackages().subscribe((response) => {
+      console.log(response);
+      
+    });
   }
 
   // Toggle method to control section visibility
@@ -524,18 +528,47 @@ export class CreateNewPackageComponent implements OnInit {
   };
   
   createManualPackage() {
-    console.log("Manual package created:", this.showManualFormVisible);
-    // You can optionally call a backend service here to save it
-    this.showManualFormVisible = false; // hide form after creating
-    // Optionally reset:
-    this.manualPackage = {
-      name: '',
-      location: '',
-      price: null,
-      duration: null,
-      description: '',
-      image: ''
-    };
+    console.log('Creating manual package:', this.manualPackage);
+    if(this.manualPackage.name == ""){
+      alert("Please enter a package name")
+      return
+    }
+    if(this.manualPackage.location == ""){  
+      alert("Please enter a package location")
+      return
+    }
+    if(this.manualPackage.price == null){
+      alert("Please enter a package price")
+      return
+    }
+    if(this.manualPackage.duration == null){
+      alert("Please enter a package duration")
+      return
+    }
+    if(this.manualPackage.description == ""){
+      alert("Please enter a package description")
+      return
+    }
+    if(this.manualPackage.image == ""){
+      alert("Please enter a package image")
+      return
+    }
+    this.packagesService.createManualPackage(this.manualPackage).subscribe((response) => {
+      if(response.response == "saved") {
+        alert("Package created successfully")
+        this.manualPackage = {
+          name: '',
+          location: '',
+          price: null,
+          duration: null,
+          description: '',
+          image: ''
+        };
+      } else {
+        alert("Error creating package")
+      }
+    });
+    
   }
   
 }

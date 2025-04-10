@@ -530,7 +530,6 @@
     <label for="image">Image URL:</label>
     <input type="text" id="image" [(ngModel)]="manualPackage.image" name="image">
 
-    <button type="button" class="submit-button" (click)="createManualPackage()">Create Package</button>
   </form>
 </div>
       
@@ -539,7 +538,7 @@
 
         <!-- Create Package Button -->
         <div class="create-trip-btn-container">
-          <button class="create-trip-btn" (click)="createPackage()">
+          <button class="create-trip-btn" (click)="createManualPackage()">
             Create Package
           </button>
         </div>

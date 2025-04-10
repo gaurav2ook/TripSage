@@ -10,11 +10,13 @@ import org.springframework.stereotype.Service;
 import com.example.tripsage.Model.AdminPackages;
 import com.example.tripsage.Model.Flight;
 import com.example.tripsage.Model.Hotel;
+import com.example.tripsage.Model.ManualPackages;
 import com.example.tripsage.Model.Restaurant;
 import com.example.tripsage.Model.Train;
 import com.example.tripsage.Repository.AdminPackageRepo;
 import com.example.tripsage.Repository.FlightRepo;
 import com.example.tripsage.Repository.HotelRepo;
+import com.example.tripsage.Repository.ManualPackagesRepo;
 import com.example.tripsage.Repository.RestaurantRepo;
 import com.example.tripsage.Repository.TrainRepo;
 
@@ -35,6 +37,9 @@ public class AdminPackageService {
 	
 	@Autowired
 	private FlightRepo fr;
+	
+	@Autowired
+	private ManualPackagesRepo mr;
 	
 	public void savePackage(String name, HashMap<String, String> data, Long uid) {
 		if(data.get("ptype").equals("hotel")) {
@@ -89,6 +94,18 @@ public class AdminPackageService {
 		apr.save(adpkg);
 	}
 	
+	public void saveManualPackages(Long uid, HashMap<String, String> data) {
+		ManualPackages mpkg = new ManualPackages();
+		mpkg.setDescription(data.get("description"));
+		mpkg.setName(data.get("name"));
+		mpkg.setDuration(data.get("duration"));
+		mpkg.setImage(data.get("image"));
+		mpkg.setLocation(data.get("location"));
+		mpkg.setPrice(data.get("price"));
+		mpkg.setUid(uid);
+		mr.save(mpkg);
+	}
+	
 	public void saveHotels(Long uid, Hotel hotel) {
 		hr.save(hotel);
 		AdminPackages adpkg = new AdminPackages();
@@ -108,6 +125,11 @@ public class AdminPackageService {
 		adpkg.setName("Trip");
 		adpkg.setType("restaurant");
 		apr.save(adpkg);
+	}
+	
+	public List<ManualPackages> getManualPackages() {
+		List<ManualPackages> data = mr.findAll();
+		return data;
 	}
 	
 	public List<HashMap<String, String>> getAllPackages(Long id) {

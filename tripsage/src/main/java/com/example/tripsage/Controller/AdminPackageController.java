@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.tripsage.JwtSecurity;
 import com.example.tripsage.DTO.AdminPackageDTO;
 import com.example.tripsage.Model.Hotel;
+import com.example.tripsage.Model.ManualPackages;
 import com.example.tripsage.Model.Restaurant;
 import com.example.tripsage.Service.AdminPackageService;
 import com.example.tripsage.Service.UserService;
@@ -50,6 +51,20 @@ public class AdminPackageController {
 		return ResponseEntity.ok(dt);
 	}
 	
+	@PostMapping("/create-manual-package")
+	public ResponseEntity<?> saveManualPackages(@RequestHeader("Authorization") String token, @RequestBody HashMap<String, String> packages) {
+		if (token.startsWith("Bearer ")) {
+            token = token.substring(7);
+        }
+
+		adService.saveManualPackages(us.getUserByEmail(security.extractUsername(token)).getId(), packages);
+		
+		HashMap<String, String> dt = new HashMap<String, String>();
+		dt.put("response", "saved");
+		
+		return ResponseEntity.ok(dt);
+	}
+	
 	@PostMapping("/create-hotel-package")
 	public HashMap<String, String> bookhotels(@RequestHeader("Authorization") String token, @RequestBody Hotel hotel) {
 		if (token.startsWith("Bearer ")) {
@@ -74,6 +89,15 @@ public class AdminPackageController {
 		HashMap<String, String> data = new HashMap<String, String>();
 		data.put("status", "Saved");
 		return data;
+	}
+	
+	@GetMapping("/get-manual-packages")
+	public List<ManualPackages> getManualPackages(@RequestHeader("Authorization") String token) {
+		if (token.startsWith("Bearer ")) {
+            token = token.substring(7);
+        }
+		
+		return adService.getManualPackages();
 	}
 	
 	@GetMapping("/get-packages")

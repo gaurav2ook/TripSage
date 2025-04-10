@@ -18,6 +18,13 @@ export class PackagesService {
     });
   }
 
+  getManualPackages(): Observable<any> {
+    const token = sessionStorage.getItem('authToken');
+    return this.http.get(`${this.apiUrl}/get-manual-packages`, {
+      headers: { 'Authorization': `Bearer ${token}` }
+    });
+  }
+
   getUserPackages(): Observable<any> {
     const token = sessionStorage.getItem('authToken');
     return this.http.get(`${this.apiUrl}/get-user-packages`, {
@@ -28,6 +35,13 @@ export class PackagesService {
   createPackage(pkg: any): Observable<any> {
     const token = sessionStorage.getItem('authToken');
     return this.http.post(`${this.apiUrl}/create-package`, pkg, {
+      headers: { 'Authorization': `Bearer ${token}` }
+    });
+  }
+
+  createManualPackage(pkg: any): Observable<any> {
+    const token = sessionStorage.getItem('authToken');
+    return this.http.post(`${this.apiUrl}/create-manual-package`, pkg, {
       headers: { 'Authorization': `Bearer ${token}` }
     });
   }
