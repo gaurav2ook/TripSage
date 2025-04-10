@@ -7,6 +7,7 @@ import { FlightBookingService } from '../../../services/flight-booking.service';
 import { RestaurantBookingService } from '../../../services/restaurant-booking.service';
 import { TrainReservationService } from '../../../services/train-reservation.service';
 
+
 @Component({
   selector: 'app-create-new-package',
   templateUrl: './create-new-package.component.html',
@@ -16,6 +17,10 @@ export class CreateNewPackageComponent implements OnInit {
 
   adminName = "";
   adminEmail = "";
+
+  // Constructor to inject the Router service for navigation
+  constructor(private router: Router, private packagesService: PackagesService, private userprofileService: UserprofileService, private hotelService: HotelBookingService, private flightService: FlightBookingService, private restaurantService: RestaurantBookingService, private trainService: TrainReservationService) {}
+
 
   // Trip basic details
   currentLocation: string = '';
@@ -42,6 +47,7 @@ export class CreateNewPackageComponent implements OnInit {
   showTrainSection: boolean = false;
   showFlightSection: boolean = false;
   showRestaurantSection: boolean = false;
+  manualFormVisible: boolean = false
 
   // Flags to track if services are added
   hotelAdded: boolean = false;
@@ -63,12 +69,15 @@ export class CreateNewPackageComponent implements OnInit {
     this.showTrainSection = false;
     this.showFlightSection = false;
     this.showRestaurantSection = false;
+    this.manualFormVisible= false;
 
     // Reset all flags
     this.hotelAdded = false;
     this.trainAdded = false;
     this.flightAdded = false;
     this.restaurantAdded = false;
+    this.manualFormVisible = false;
+    
 
     // Show the clicked section
     switch (section) {
@@ -84,6 +93,9 @@ export class CreateNewPackageComponent implements OnInit {
       case 'restaurants':
         this.showRestaurantSection = true;
         break;
+        case 'manualForm':
+          this.manualFormVisible = true;
+          break;
       default:
         break;
     }
@@ -392,6 +404,13 @@ export class CreateNewPackageComponent implements OnInit {
 
   packages: any[] = []
   packageName = ""
+  packageDescription = ""
+  packagePrice = ""
+  selectedHotel = ""
+  selectedFlight =""
+  selectedTrain = ""
+  selectedRestaurant = ""
+  
 
   // Hotel-related methods
   searchHotels() {
@@ -457,6 +476,27 @@ export class CreateNewPackageComponent implements OnInit {
     });
   }
 
+  submitPackage() {
+    if (!this.searchHotels || !this.searchFlights || !this.searchTrains || !this.searchRestaurants) {
+      alert('Please select all services before creating a package.');
+      return;
+    }
+  
+    const packageData = {
+      name: this.packageName,
+      description: this.packageDescription,
+      price: this.packagePrice,
+      hotel: this.selectedHotel,
+      flight: this.selectedFlight,
+      train: this.selectedTrain,
+      restaurant: this.selectedRestaurant,
+    };
+  
+    // Replace with your actual API call
+    console.log('Submitting package:', packageData);
+    alert('Package created successfully!');
+  }
+  
   // Method to remove a package
   removePackage(packageToRemove: any): void {
     const index = this.packages.indexOf(packageToRemove);
@@ -482,11 +522,39 @@ export class CreateNewPackageComponent implements OnInit {
     });
   }
 
+  
   addToPackage(item: any, type: string) {
     item.ptype = type
     this.packages.push(item)
   }
 
-  // Constructor to inject the Router service for navigation
-  constructor(private router: Router, private packagesService: PackagesService, private userprofileService: UserprofileService, private hotelService: HotelBookingService, private flightService: FlightBookingService, private restaurantService: RestaurantBookingService, private trainService: TrainReservationService) {}
+  manualPackage = {
+    name: '',
+    location: '',
+    price: null,
+    duration: null,
+    description: '',
+    image: ''
+  };
+  
+  toggleManualForm() {
+    this.manualFormVisible = !this.manualFormVisible;
+    console.log('Manual Form Visibility:', this.manualFormVisible);
+  }
+  
+  createManualPackage() {
+    console.log("Manual package created:", this.manualPackage);
+    // You can optionally call a backend service here to save it
+    this.manualFormVisible = false; // hide form after creating
+    // Optionally reset:
+    this.manualPackage = {
+      name: '',
+      location: '',
+      price: null,
+      duration: null,
+      description: '',
+      image: ''
+    };
+  }
+  
 }
