@@ -1,128 +1,195 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserprofileService } from '../../../services/userprofile.service';
 import { HotelBookingService } from '../../../services/hotel-booking.service';
 import { PackagesService } from '../../../services/packages.service';
+import { ManualpackageService } from '../../../services/manualpackage.service';
+
+interface Hotel {
+  id: string;
+  image: string;
+  name: string;
+  location: string;
+  rating: string;
+  price: string;
+  amenities: string;
+}
 
 @Component({
   selector: 'app-create-hotel-package',
   templateUrl: './create-hotel-package.component.html',
-  styleUrl: './create-hotel-package.component.css'
+  styleUrls: ['./create-hotel-package.component.css']
 })
 export class CreateHotelPackageComponent implements OnInit {
 
-  showHotelSection: boolean = true;
-
-  // Flags to track if services are added
- hotelAdded: boolean = true;
+  showHotelSection = true;
+  manualFormVisible = false;
 
   // Hotel search fields
-  destination: string = '';
- checkinDate: string = '';
- checkoutDate: string = '';
- guests: number = 1;
- rooms: number = 1;
- guestOptions = [1, 2, 3, 4, 5];
- roomOptions = [1, 2, 3, 4];
- hotelResults
-//  : [
-//   {
-//     id: string,
-//     image: string,
-//     name: string,
-//     location: string,
-//     rating: string,
-//     price: number,
-//     amenities: string
-//   }
-//  ] 
-= [
-  {
-    id: '1',
-    image: 'assets/img/hotel images/leela hotel.jpg',
-    name: 'The Leela Palace Bengaluru',
-    location: 'Bengaluru',
-    rating: '⭐️⭐️⭐️⭐️ | 4.9/5 Excellent',
-    price: '₹20000' ,
-    amenities: 'Lush gardens, luxury spa, fine dining, business facilities',
-  },
-  // Additional hotel data can be added here
-  {
-    id: '2',
-    image: 'assets/img/hotel images/taj hotel.jpg',
-    name: 'Taj Lands End',
-    location: 'Mumbai',
-    rating: '⭐️⭐️⭐️⭐️ |  4.8/5 Excellent',
-    price: "₹15,000–₹20,000 per night",
-    amenities: 'Sea views, outdoor pool, spa, multiple restaurants',
-  },
+  destination = '';
+  checkinDate = '';
+  checkoutDate = '';
+  guests = 1;
+  rooms = 1;
+  guestOptions = [1, 2, 3, 4, 5];
+  roomOptions = [1, 2, 3, 4];
 
-  {
-    id: '3',
-    image: 'assets/img/hotel images/udaipur hotel1.jpg',
-    name: 'The Oberoi Udaivilas',
-    location: ' Udaipur',
-    rating: '⭐️⭐️⭐️⭐️ |  5/5 Excellent',
-    price: '₹30,000–₹50,000 per night',
-    amenities: 'Lakeside views, private pools, spa, cultural tours',
-  },
+  hotelResults: Hotel[] = [
+    {
+      id: '1',
+      image: 'assets/img/hotel images/leela hotel.jpg',
+      name: 'The Leela Palace Bengaluru',
+      location: 'Bengaluru',
+      rating: '⭐️⭐️⭐️⭐️ | 4.9/5 Excellent',
+      price: '₹20000',
+      amenities: 'Lush gardens, luxury spa, fine dining, business facilities',
+    },
+    {
+      id: '2',
+      image: 'assets/img/hotel images/taj hotel.jpg',
+      name: 'Taj Lands End',
+      location: 'Mumbai',
+      rating: '⭐️⭐️⭐️⭐️ |  4.8/5 Excellent',
+      price: '₹15,000–₹20,000 per night',
+      amenities: 'Sea views, outdoor pool, spa, multiple restaurants',
+    },
+    {
+      id: '3',
+      image: 'assets/img/hotel images/udaipur hotel1.jpg',
+      name: 'The Oberoi Udaivilas',
+      location: 'Udaipur',
+      rating: '⭐️⭐️⭐️⭐️ |  5/5 Excellent',
+      price: '₹30,000–₹50,000 per night',
+      amenities: 'Lakeside views, private pools, spa, cultural tours',
+    },
+    {
+      id: '4',
+      image: 'assets/img/hotel images/imperial hotel.jpg',
+      name: 'The Imperial',
+      location: 'New Delhi',
+      rating: '⭐️⭐️⭐️⭐️ | 4.8/5 Excellent',
+      price: ' ₹15,000–₹18,000 per night',
+      amenities: 'Art Deco style, gardens, historic architecture, multiple dining options',
+    },
+    {
+      id: '5',
+      image: 'assets/img/hotel images/goa hotel1.jpg',
+      name: 'Fairfield by Marriott Goa Benaulim',
+      location: 'Goa',
+      rating: '⭐️⭐️⭐️⭐️ | 4.5/5 Excellent',
+      price: '₹8,000–₹12,000 per night',
+      amenities: 'Beach access, buffet dining, pool​',
+    }
+  ];
 
-  {
-    id: '4',
-    image: 'assets/img/hotel images/imperial hotel.jpg',
-    name: 'The Imperial',
-    location: 'New Delhi',
-    rating: '⭐️⭐️⭐️⭐️ | 4.8/5 Excellent',
-    price: ' ₹15,000–₹18,000 per night',
-    amenities: 'Art Deco style, gardens, historic architecture, multiple dining options',
-  },
+  email = '';
+  name = '';
+  trip: any = {};
 
-  {
-    id: '5',
-    image: 'assets/img/hotel images/goa hotel1.jpg',
-    name: 'Fairfield by Marriott Goa Benaulim',
-    location: ' Goa',
-    rating: '⭐️⭐️⭐️⭐️ | 4.5/5 Excellent',
-    price: '₹8,000–₹12,000 per night',
-    amenities: 'Beach access, buffet dining, pool​',
-  },
-  
- ];
-
-  email: string = '';
-  name: string = '';
+  constructor(
+    private manualPackageService: ManualpackageService,
+    private router: Router,
+    private userprofileService: UserprofileService,
+    private packagesService: PackagesService,
+    private hotelService: HotelBookingService,
+    private cdr: ChangeDetectorRef,
+    private ngZone: NgZone
+  ) {}
 
   ngOnInit(): void {
     this.userprofileService.getUserProfile().subscribe(data => {
       this.email = data.email;
-      this.name = data.firstName + ' ' + data.lastName;
+      this.name = `${data.firstName} ${data.lastName}`;
+    });
+
+    this.resetForm(); // initialize form
+  }
+
+  toggleManualForm(): void {
+    this.ngZone.run(() => {
+      this.manualFormVisible = !this.manualFormVisible;
+      this.showHotelSection = !this.manualFormVisible;
+    });
+  }
+  toggleSearchForm(): void {
+    this.showHotelSection = !this.showHotelSection;
+    this.manualFormVisible = !this.showHotelSection;
+  }
+  
+
+  searchHotels(): void {
+    const searchData = {
+      dest: this.destination,
+      checkin: this.checkinDate,
+      checkout: this.checkoutDate,
+      guests: this.guests,
+      rooms: this.rooms
+    };
+
+    this.hotelService.searchHotels(searchData).subscribe({
+      next: (data: any) => {
+        this.hotelResults = data;
+      },
+      error: err => {
+        console.error('Error fetching hotels:', err);
+      }
     });
   }
 
-// Hotel-related methods
-searchHotels() {
-  const searchData = {
-    dest: this.destination,
-    checkin: this.checkinDate,
-    checkout: this.checkoutDate,
-    guests: this.guests,
-    rooms: this.rooms
-  };
+  bookHotel(hotel: Hotel): void {
+    const confirmBooking = window.confirm(`Book ${hotel.name} for ${hotel.price}?`);
+    if (!confirmBooking) return;
 
-  this.hotelService.searchHotels(searchData).subscribe((data: any) => {
-    this.hotelResults = data;
-  });
-}
-
-  bookHotel(hotel: any) { 
-    this.packagesService.bookHotelPackage(hotel).subscribe((data: any) => {
-      if(data.status === 'Saved') {
-        alert('Hotel booked successfully');
+    this.packagesService.bookHotelPackage(hotel).subscribe({
+      next: (res: any) => {
+        if (res.status === 'Saved') {
+          alert('Hotel booked successfully');
+        }
+      },
+      error: err => {
+        console.error('Error booking hotel:', err);
       }
     });
-}
+  }
 
-// Constructor to inject the Router service for navigation
-constructor(private router: Router, private userprofileService: UserprofileService, private packagesService: PackagesService, private hotelService: HotelBookingService) {}
+  hotel: Hotel = {
+    id: '',
+    name: '',
+    location: '',
+    price: '',
+    rating: '',
+    amenities: '',
+    image: ''
+  };
+  
 
+  addHotel(): void {
+    const { name, location, price, rating, image } = this.hotel;
+  
+    if (!name || !location || !price || !rating || !image) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+  
+    // Ideally the ID should be generated by the backend or a UUID
+    this.hotel.id = Date.now().toString(); // temporary ID
+  
+    this.hotelResults.push({ ...this.hotel }); // add to UI list
+    alert('Hotel added successfully!');
+    this.resetForm();
+  }
+  
+
+  resetForm(): void {
+    this.hotel = {
+      id: '',
+      name: '',
+      location: '',
+      price: '',
+      rating: '',
+      amenities: '',
+      image: ''
+    };
+  }
+  
 }
