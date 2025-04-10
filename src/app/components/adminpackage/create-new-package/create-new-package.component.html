@@ -121,6 +121,11 @@
       >
         Add Restaurants
       </button>
+    <button class="add-btn" (click)="toggleManualForm()" 
+     style="border: 2px solid #0f172b">
+      Add Manually
+    </button>
+
     </div>
   </div>
 
@@ -269,7 +274,7 @@
     <section class="train-results">
       <!-- Train Results -->
       <div *ngFor="let train of trainResults" class="result">
-        <img [src]="train.image" alt="Train Image" class="train-image" />
+        <img [src]="train.image" alt="Train Icon" class="train-icon" />
         <div class="train-details">
           <h3>{{ train.name }}</h3>
           <p>Departure: {{ train.departure }} | Arrival: {{ train.arrival }}</p>
@@ -364,7 +369,7 @@
     <section class="flight-results">
       <!-- Flight Results -->
       <div *ngFor="let flight of flightResults" class="result">
-        <img [src]="flight.image" alt="Flight Image" class="flight-image" />
+        <img [src]="flight.image" alt="Airline Logo" class="airline-logo" />
         <div class="flight-details">
           <h3>{{ flight.name }}</h3>
           <p>Departure: {{ flight.departure }} | Arrival: {{ flight.arrival }}</p>
@@ -493,6 +498,44 @@
             </tbody>
           </table>
         </div>
+
+       <!-- Manual Add Form -->
+<!-- Manual Form Section -->
+<div *ngIf="manualPackage">
+  <div class="container-fluid page-header mb-5 p-0"
+    style="background-image: url(assets/img/room-1.jpg); background-size: cover; background-position: center;">
+    <div class="container-fluid page-header-inner py-3" style="background: rgba(0, 0, 0, 0.5);">
+      <div class="container text-center py-3">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Create Package</h1>
+      </div>
+    </div>
+  </div>
+
+  <form>
+    <label for="name">Package Name:</label>
+    <input type="text" id="name" [(ngModel)]="manualPackage.name" name="name">
+
+    <label for="location">Location:</label>
+    <input type="text" id="location" [(ngModel)]="manualPackage.location" name="location">
+
+    <label for="price">Price:</label>
+    <input type="number" id="price" [(ngModel)]="manualPackage.price" name="price">
+
+    <label for="duration">Duration (days):</label>
+    <input type="number" id="duration" [(ngModel)]="manualPackage.duration" name="duration">
+
+    <label for="description">Description:</label>
+    <textarea id="description" [(ngModel)]="manualPackage.description" name="description"></textarea>
+
+    <label for="image">Image URL:</label>
+    <input type="text" id="image" [(ngModel)]="manualPackage.image" name="image">
+
+    <button type="button" class="submit-button" (click)="createManualPackage()">Create Package</button>
+  </form>
+</div>
+      
+
+      <!-- manually package end -->
 
         <!-- Create Package Button -->
         <div class="create-trip-btn-container">
