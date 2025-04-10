@@ -19,7 +19,7 @@ export class CreateNewPackageComponent implements OnInit {
   adminEmail = "";
 
   // Constructor to inject the Router service for navigation
-  constructor(private router: Router, private packagesService: PackagesService, private userprofileService: UserprofileService, private hotelService: HotelBookingService, private flightService: FlightBookingService, private restaurantService: RestaurantBookingService, private trainService: TrainReservationService) {}
+  constructor(private packagesService: PackagesService, private userprofileService: UserprofileService, private hotelService: HotelBookingService, private flightService: FlightBookingService, private restaurantService: RestaurantBookingService, private trainService: TrainReservationService) {}
 
 
   // Trip basic details
@@ -54,10 +54,9 @@ export class CreateNewPackageComponent implements OnInit {
       this.adminEmail = data.email;
       this.adminName = data.firstName + ' ' + data.lastName;
     });
-    this.packagesService.getManualPackages().subscribe((response) => {
-      console.log(response);
-      
-    });
+    // this.packagesService.getManualPackages().subscribe((response) => {
+    //   console.log(response);
+    // });
   }
 
   // Toggle method to control section visibility
