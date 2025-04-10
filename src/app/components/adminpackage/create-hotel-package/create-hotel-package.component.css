@@ -280,4 +280,996 @@ body, h1, h2, h3, p, input, button {
   
   
   
+/* another only for buttonn */
+.admin-profile {
+  padding: 40px 20px;
+  background-color: var(--light);
+  color: var(--dark);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(230, 148, 6, 0.985);
+}
+
+/* Global Styles */
+body, h1, h2, h3, p, input, button {
+    font-family: 'Heebo', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
   
+  /* Page Header Styling */
+  .page-header {
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+  }
+  
+  .breadcrumb {
+    background: transparent;
+  }
+  
+  .breadcrumb-item a {
+    color: #ffb400; /* Primary color for breadcrumb links */
+  }
+  
+  .breadcrumb-item.active {
+    color: #fff;
+  }
+  
+  /* Add Package Panel Styling */
+  .add-package-panel {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    border-radius: 8px;
+    max-width: 100%;
+    overflow-x: auto; /* Allows scrolling on smaller screens */
+  }
+  
+  .add-package-panel .input-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+  }
+  
+  .add-package-panel label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  .add-package-panel input[type="text"],
+  .add-package-panel input[type="date"],
+  .add-package-panel input[type="number"],
+  .add-package-panel select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #333;
+  }
+  
+  .add-package-panel input::placeholder {
+    color: #888;
+  }
+  
+  /* Add Button Styling */
+  .add-package-panel .add-btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #ff8c00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center;
+  }
+  
+  .add-package-panel .add-btn:hover {
+    background-color: #e07a00;
+  }
+  
+  /* Responsive Design for Smaller Screens */
+  @media (max-width: 768px) {
+    .add-package-panel {
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 15px;
+    }
+  }
+  
+  /* hotel-search.component.css */
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    background-color: #ff8c00;
+    color: #fff;
+    height:min-content;
+  }
+  
+  header .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  header .title {
+    font-size: 18px;
+  }
+  
+  header .profile-icon {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .search-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 180px;
+  }
+  
+  .input-group label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input,
+  .input-group select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .search-btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #ff8c00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .search-btn:hover {
+    background-color: #e07a00;
+  }
+  
+  .hotel-results {
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .result {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .hotel-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    margin-right: 15px;
+  }
+  
+  .hotel-details {
+    flex: 1;
+  }
+  
+  .hotel-details h3 {
+    margin-bottom: 5px;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .view-details-btn, .book-btn {
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .view-details-btn {
+    background-color: #ddd;
+    color: #333;
+  }
+  
+  .book-btn {
+    background-color: #ff8c00;
+    color: #fff;
+  }
+  
+  .book-btn:hover {
+    background-color: #e07a00;
+  }
+  
+  
+  /* flight-search.component.css */
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items:center;
+    padding: 20px;
+    background-color: #ff8c00;
+    color: #fff;
+    height: min-content;
+  }
+  
+  header .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  header .title {
+    font-size: 18px;
+  }
+  
+  header .profile-icon {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .search-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 180px;
+  }
+  
+  .input-group label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input,
+  .input-group select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .trip-type {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+  }
+  
+  .trip-type label {
+    font-size: 14px;
+  }
+  
+  .search-btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #ff8c00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .search-btn:hover {
+    background-color: #ff8c00;
+  }
+  
+  .flight-results {
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .result {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .airline-logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+  }
+  
+  .flight-details {
+    flex: 1;
+  }
+  
+  .flight-details h3 {
+    margin-bottom: 5px;
+  }
+  
+  .price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 15px;
+  }
+  
+  .select-btn {
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: #ff8c00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .select-btn:hover {
+    background-color: #ff8c00;
+  }
+  
+  /* train-search.component.css */
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #ff8c00;
+    color: #fff;
+    height: min-content;
+  }
+  
+  header .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  header .title {
+    font-size: 18px;
+  }
+  
+  header .profile-icon {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .search-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 180px;
+  }
+  
+  .input-group label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input,
+  .input-group select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .trip-type {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+  }
+  
+  .trip-type label {
+    font-size: 14px;
+  }
+  
+  .search-btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #ff8c00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .search-btn:hover {
+    background-color: #bb7015;
+  }
+  
+  .train-results {
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .result {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .train-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+  }
+  
+  .train-details {
+    flex: 1;
+  }
+  
+  .train-details h3 {
+    margin-bottom: 5px;
+  }
+  
+  .price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 15px;
+  }
+  
+  .book-btn {
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: #ff8c00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .book-btn:hover {
+    background-color: #ff8c00;
+  }
+  
+  /* restaurant-booking.component.css */
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #ff8c00;
+    color: #fff;
+    height: min-content;
+  }
+  
+  header .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  header .title {
+    font-size: 18px;
+  }
+  
+  header .profile-icon {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .search-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 180px;
+  }
+  
+  .input-group label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input,
+  .input-group select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .search-btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #ff8c00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .search-btn:hover {
+    background-color: #ff8c00;
+  }
+  
+  .restaurant-results {
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .result {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .restaurant-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    margin-right: 15px;
+  }
+  
+  .restaurant-details {
+    flex: 1;
+  }
+  
+  .restaurant-details h3 {
+    margin-bottom: 5px;
+  }
+  
+  .book-btn {
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: #ff8c00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .book-btn:hover {
+    background-color: #ff8c00;
+  }
+  
+  /* Styling for Restaurant Results */
+  .restaurant-results .result {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
+  .restaurant-icon {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  
+  .restaurant-details {
+    flex-grow: 1;
+  }
+  
+  .restaurant-details h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .restaurant-details p {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+  
+  .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fea116;
+  }
+  
+  .book-btn {
+    background-color: #fea116;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .book-btn:hover {
+    background-color: #fea116;
+  }
+  
+  /* button section */
+  
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Adds space between buttons */
+  }
+  
+  .add-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #fea116; /* Bootstrap primary color */
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-btn:hover {
+    background-color: #ca7b06; /* Darker shade for hover effect */
+  }
+  
+  .add-btn:active {
+    background-color: #bf7c18; /* Even darker shade for active state */
+  }
+  
+  .add-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(214, 168, 4, 0.5); /* Focus effect */
+  }
+  
+  /* Create Trip Button Container */
+  .create-trip-btn-container {
+    position:static;
+    bottom: 80px; /* Adjust this value to ensure it's above the footer */
+    left: 50%;
+    transform: translateX(0%);
+    z-index: 000; /* Ensures the button appears above other content */
+    width: auto;  /* Button container size based on the button itself */
+    text-align: center;
+  }
+  
+  /* Style for the Create Trip button */
+  .create-trip-btn {
+    padding: 12px 24px;
+    background-color: #fea116; /* Adjust color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Button Hover Effect */
+  .create-trip-btn:hover {
+    background-color: #fea110;
+  }
+  
+  /* Optional: Focus effect for accessibility */
+  .create-trip-btn:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Highlight on focus */
+  }
+  
+  
+  /* Package Table Styling */
+.package-table {
+  margin-top: 30px;
+}
+
+.package-table .table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.package-table th,
+.package-table td {
+  padding: 10px;
+  text-align: left;
+}
+
+.package-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Remove Button */
+.package-table .btn-danger {
+  background-color: #e07a00;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.package-table .btn-danger:hover {
+  background-color: #c77b00;
+}
+
+/* Create Package Button */
+.create-trip-btn-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.create-trip-btn {
+  padding: 12px 24px;
+  background-color: #fea116;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.create-trip-btn:hover {
+  background-color: #e07a00;
+}
+  
+/* Package Table Styling */
+.package-table {
+  margin-top: 30px;
+}
+
+.package-table .table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.package-table th,
+.package-table td {
+  padding: 10px;
+  text-align: left;
+}
+
+.package-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Remove Button */
+.package-table .btn-danger {
+  background-color: #e07a00;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.package-table .btn-danger:hover {
+  background-color: #c77b00;
+}
+
+/* Create Package Button */
+.create-trip-btn-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.create-trip-btn {
+  padding: 12px 24px;
+  background-color: #fea116;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.create-trip-btn:hover {
+  background-color: #e07a00;
+}
+
+/* manual form css */
+body, html {
+  width: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f9fa;
+}
+
+.container-xxl {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.section-title h1 {
+  font-weight: bold;
+  color: #0F172B;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.trip-form {
+  background-color: #fff;
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 4px solid #fea116;
+  position: relative;
+  z-index: 2;
+}
+
+.trip-form label {
+  font-weight: 600;
+  color: #0F172B;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.trip-form .form-control {
+  border-radius: 5px;
+  border: 1px solid #fea116;
+  padding: 12px;
+  font-size: 1rem;
+  background-color: #ffffff;
+}
+
+.trip-form .form-control:focus {
+  border-color: #FEA116;
+  box-shadow: 0 0 5px rgba(254, 161, 22, 0.5);
+  outline: none;
+}
+
+.trip-form .btn-primary {
+  background-color: #FEA116;
+  border-color: #0F172B;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: fit-content;
+  display: block;
+  margin: 0 auto;
+}
+
+.trip-form .btn-primary:hover {
+  color: #FEA116;
+  background-color: #0F172B;
+  border-color: #d68710;
+  transform: scale(1.05);
+}
+
+/* Background Image for the Form Section */
+.form-container {
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 50px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Ensure images fit content without overflowing */
+img {
+  max-width: 100%;
+  height: fit-content;
+  display: block;
+  margin: 0 auto;
+}
+
+.profile-pic img, .app-logo img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .trip-form {
+      width: 90%;
+      padding: 20px;
+  }
+  .trip-form .btn-primary {
+      width: 100%;
+  }
+}
