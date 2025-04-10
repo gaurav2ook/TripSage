@@ -34,86 +34,126 @@
             </nav>
         </div>
     </div>
+
     <!-- Page Header End -->
 
-    
-   <!-- Trip basic details
-   <section class="add-package-panel">
-    <div class="input-group">
-      <label for="current-location">Current Location</label>
-      <input type="text" id="current-location" placeholder="Enter your current location" [(ngModel)]="currentLocation">
-    </div>
-    <div class="input-group">
-      <label for="destination">Destination</label>
-      <input type="text" id="destination" placeholder="City or Destination" [(ngModel)]="destination">
-    </div>
-    <div class="input-group">
-      <label for="travel-date">Date</label>
-      <input type="date" id="travel-date" [(ngModel)]="travelDate">
-    </div>
-    <div class="input-group">
-      <label for="number-of-people">Number of People</label>
-      <input type="number" id="number-of-people" min="1" placeholder="Enter number of people"
-        [(ngModel)]="numberOfPeople">
-    </div>
-    <button class="add-btn" (click)="addPackage()">Add Details</button>
-  </section> -->
-
-   <!-- Add Hotels Section -->
-   <div *ngIf="showHotelSection">
-    <div class="container-fluid page-header mb-5 p-0"
-      style="background-image: url(assets/img/room-1.jpg); background-size: cover; background-position: center;">
-      <div class="container-fluid page-header-inner py-3" style="background: rgba(0, 0, 0, 0.5);">
-        <div class="container text-center py-3">
-          <h1 class="display-3 text-white mb-3 animated slideInDown">Add Hotels</h1>
-        </div>
-      </div>
-    </div>
-
-    <section class="search-panel">
-      <!-- Hotel Form Inputs -->
-      <div class="input-group">
-        <label for="hotel-destination">Destination</label>
-        <input type="text" id="hotel-destination" placeholder="City or Hotel Name" [(ngModel)]="destination">
-      </div>
-      <div class="input-group">
-        <label for="checkin-date">Check-In Date</label>
-        <input type="date" id="checkin-date" [(ngModel)]="checkinDate">
-      </div>
-      <div class="input-group">
-        <label for="checkout-date">Check-Out Date</label>
-        <input type="date" id="checkout-date" [(ngModel)]="checkoutDate">
-      </div>
-      <div class="input-group">
-        <label for="guests">Guests</label>
-        <select id="guests" [(ngModel)]="guests">
-          <option *ngFor="let option of guestOptions" [value]="option">{{ option }}</option>
-        </select>
-      </div>
-      <div class="input-group">
-        <label for="rooms">Rooms</label>
-        <select id="rooms" [(ngModel)]="rooms">
-          <option *ngFor="let option of roomOptions" [value]="option">{{ option }}</option>
-        </select>
-      </div>
-      <button class="search-btn" (click)="searchHotels()">Search Hotels</button>
-    </section>
-
-    <section class="hotel-results">
-      <!-- Hotel Results -->
-      <div *ngFor="let hotel of hotelResults" class="result">
-        <img [src]="hotel.image" alt="Hotel Image" class="hotel-image">
-        <div class="hotel-details">
-          <h3>{{ hotel.name }}</h3>
-          <p>Location: {{ hotel.location }}</p>
-          <p>Rating: {{ hotel.rating }}</p>
-          <p>Price: ${{ hotel.price }}/night</p>
-          <p>Amenities: {{ hotel.amenities }}</p>
-        </div>
-        <div class="actions">
-          <button class="book-btn" (click)="bookHotel(hotel)">Add To Package</button>
-        </div>
-      </div>
-    </section>
+   <!-- Add Package Buttons -->
+<div class="container text-center py-2">
+  <h1
+    class="display-5 mb-3 animated slideInDown"
+    style="color: #ffffff; background-color: #0f172b; border: 4px solid #fea116;"
+  >
+    Add Services To Your Trip
+  </h1>
+  <div class="button-group">
+    <button class="add-btn" (click)="toggleManualForm()" style="border: 2px solid #0f172b">
+      Add Manually
+    </button>
+    <button class="add-btn" (click)="toggleSearchForm()" style="border: 2px solid #fea116; margin-left: 10px;">
+      Search Hotel
+    </button>
   </div>
+</div>
+
+<!-- Search Hotel Section -->
+<div *ngIf="showHotelSection && !manualFormVisible">
+  <div class="container-fluid page-header mb-5 p-0"
+    style="background-image: url(assets/img/room-1.jpg); background-size: cover; background-position: center;">
+    <div class="container-fluid page-header-inner py-3" style="background: rgba(0, 0, 0, 0.5);">
+      <div class="container text-center py-3">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Add Hotels</h1>
+      </div>
+    </div>
   </div>
+
+  <section class="search-panel">
+    <!-- Hotel Form Inputs -->
+    <div class="input-group">
+      <label for="hotel-destination">Destination</label>
+      <input type="text" id="hotel-destination" placeholder="City or Hotel Name" [(ngModel)]="destination">
+    </div>
+    <div class="input-group">
+      <label for="checkin-date">Check-In Date</label>
+      <input type="date" id="checkin-date" [(ngModel)]="checkinDate">
+    </div>
+    <div class="input-group">
+      <label for="checkout-date">Check-Out Date</label>
+      <input type="date" id="checkout-date" [(ngModel)]="checkoutDate">
+    </div>
+    <div class="input-group">
+      <label for="guests">Guests</label>
+      <select id="guests" [(ngModel)]="guests">
+        <option *ngFor="let option of guestOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <label for="rooms">Rooms</label>
+      <select id="rooms" [(ngModel)]="rooms">
+        <option *ngFor="let option of roomOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+    <button class="search-btn" (click)="searchHotels()">Search Hotels</button>
+  </section>
+
+  <section class="hotel-results">
+    <!-- Hotel Results -->
+    <div *ngFor="let hotel of hotelResults" class="result">
+      <img [src]="hotel.image" alt="Hotel Image" class="hotel-image">
+      <div class="hotel-details">
+        <h3>{{ hotel.name }}</h3>
+        <p>Location: {{ hotel.location }}</p>
+        <p>Rating: {{ hotel.rating }}</p>
+        <p>Price: ${{ hotel.price }}/night</p>
+        <p>Amenities: {{ hotel.amenities }}</p>
+      </div>
+      <div class="actions">
+        <button class="book-btn" (click)="bookHotel(hotel)">Add To Package</button>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- Manual Hotel Form Section -->
+<div *ngIf="manualFormVisible">
+  <div class="container-fluid page-header mb-5 p-0"
+    style="background-image: url(assets/img/room-1.jpg); background-size: cover; background-position: center;">
+    <div class="container-fluid page-header-inner py-3" style="background: rgba(0, 0, 0, 0.5);">
+      <div class="container text-center py-3">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Add Hotel</h1>
+      </div>
+    </div>
+  </div>
+
+  <form class="trip-form shadow p-4 rounded" (ngSubmit)="addHotel()" #hotelForm="ngForm">
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label">Hotel Name</label>
+        <input type="text" class="form-control" placeholder="e.g. The Leela Palace" [(ngModel)]="hotel.name" name="name" required>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Location</label>
+        <input type="text" class="form-control" placeholder="e.g. Bengaluru" [(ngModel)]="hotel.location" name="location" required>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Price</label>
+        <input type="text" class="form-control" placeholder="e.g. ₹20,000" [(ngModel)]="hotel.price" name="price" required>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Rating</label>
+        <input type="text" class="form-control" placeholder="e.g. ⭐️⭐️⭐️⭐️ | 4.8/5 Excellent" [(ngModel)]="hotel.rating" name="rating" required>
+      </div>
+      <div class="col-md-12">
+        <label class="form-label">Amenities</label>
+        <input type="text" class="form-control" placeholder="e.g. Spa, Pool, Wi-Fi" [(ngModel)]="hotel.amenities" name="amenities">
+      </div>
+      <div class="col-md-12">
+        <label class="form-label">Image URL</label>
+        <input type="text" class="form-control" placeholder="e.g. assets/img/hotel images/hotel1.jpg" [(ngModel)]="hotel.image" name="image" required>
+      </div>
+      <div class="col-12 text-center">
+        <button class="btn btn-primary px-5 py-2" type="submit">Add Hotel</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
