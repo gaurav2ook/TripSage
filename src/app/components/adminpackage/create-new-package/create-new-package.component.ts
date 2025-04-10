@@ -47,13 +47,7 @@ export class CreateNewPackageComponent implements OnInit {
   showTrainSection: boolean = false;
   showFlightSection: boolean = false;
   showRestaurantSection: boolean = false;
-  manualFormVisible: boolean = false
-
-  // Flags to track if services are added
-  hotelAdded: boolean = false;
-  trainAdded: boolean = false;
-  flightAdded: boolean = false;
-  restaurantAdded: boolean = false;
+  showManualFormVisible: boolean = false
 
   ngOnInit(): void {
     this.userprofileService.getUserProfile().subscribe(data => {
@@ -69,15 +63,7 @@ export class CreateNewPackageComponent implements OnInit {
     this.showTrainSection = false;
     this.showFlightSection = false;
     this.showRestaurantSection = false;
-    this.manualFormVisible= false;
-
-    // Reset all flags
-    this.hotelAdded = false;
-    this.trainAdded = false;
-    this.flightAdded = false;
-    this.restaurantAdded = false;
-    this.manualFormVisible = false;
-    
+    this.showManualFormVisible= false;
 
     // Show the clicked section
     switch (section) {
@@ -94,7 +80,7 @@ export class CreateNewPackageComponent implements OnInit {
         this.showRestaurantSection = true;
         break;
         case 'manualForm':
-          this.manualFormVisible = true;
+          this.showManualFormVisible = true;
           break;
       default:
         break;
@@ -537,15 +523,10 @@ export class CreateNewPackageComponent implements OnInit {
     image: ''
   };
   
-  toggleManualForm() {
-    this.manualFormVisible = !this.manualFormVisible;
-    console.log('Manual Form Visibility:', this.manualFormVisible);
-  }
-  
   createManualPackage() {
-    console.log("Manual package created:", this.manualPackage);
+    console.log("Manual package created:", this.showManualFormVisible);
     // You can optionally call a backend service here to save it
-    this.manualFormVisible = false; // hide form after creating
+    this.showManualFormVisible = false; // hide form after creating
     // Optionally reset:
     this.manualPackage = {
       name: '',

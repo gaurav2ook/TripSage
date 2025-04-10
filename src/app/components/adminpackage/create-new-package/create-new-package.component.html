@@ -121,7 +121,7 @@
       >
         Add Restaurants
       </button>
-    <button class="add-btn" (click)="toggleManualForm()" 
+    <button class="add-btn" (click)="togglePackageSection('manualForm')" 
      style="border: 2px solid #0f172b">
       Add Manually
     </button>
@@ -460,7 +460,7 @@
     </section>
   </div>
 
-  <section *ngIf="packages.length > 0">
+  <section *ngIf="showManualFormVisible">
     <div class="container">
       <h1 class="text-center mt-5">Trip Package Management</h1>
       <!-- Trip Packages Table -->

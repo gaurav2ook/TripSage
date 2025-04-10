@@ -1,9 +1,7 @@
-import { Component, OnInit, ChangeDetectorRef, NgZone } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { UserprofileService } from '../../../services/userprofile.service';
 import { HotelBookingService } from '../../../services/hotel-booking.service';
 import { PackagesService } from '../../../services/packages.service';
-import { ManualpackageService } from '../../../services/manualpackage.service';
 
 interface Hotel {
   id: string;
@@ -87,12 +85,9 @@ export class CreateHotelPackageComponent implements OnInit {
   trip: any = {};
 
   constructor(
-    private manualPackageService: ManualpackageService,
-    private router: Router,
     private userprofileService: UserprofileService,
     private packagesService: PackagesService,
     private hotelService: HotelBookingService,
-    private cdr: ChangeDetectorRef,
     private ngZone: NgZone
   ) {}
 
