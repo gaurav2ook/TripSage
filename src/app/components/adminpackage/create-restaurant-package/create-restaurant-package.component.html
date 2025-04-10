@@ -36,56 +36,119 @@
     </div>
     <!-- Page Header End -->
     <!-- Add Restaurant Section -->
-  <div *ngIf="showRestaurantSection">
-    <div class="container-fluid page-header mb-5 p-0"
-      style="background-image: url(assets/img/Restaurant3.png); background-size: cover; background-position: center;">
-      <div class="container-fluid page-header-inner py-3" style="background: rgba(0, 0, 0, 0.5);">
-        <div class="container text-center py-3">
-          <h1 class="display-3 text-white mb-3 animated slideInDown">Add Restaurants</h1>
-        </div>
+<div *ngIf="showRestaurantSection">
+  <div class="container-fluid page-header mb-5 p-0"
+    style="background-image: url(assets/img/Restaurant3.png); background-size: cover; background-position: center;">
+    <div class="container-fluid page-header-inner py-3" style="background: rgba(0, 0, 0, 0.5);">
+      <div class="container text-center py-3">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Add Restaurants</h1>
       </div>
     </div>
+  </div>
 
-    <!-- Restaurant package -->
-    <section class="search-panel">
-        <div class="input-group">
-          <label for="location">Location</label>
-          <input type="text" id="location" placeholder="City or Area" [(ngModel)]="location">
-        </div>
-        <div class="input-group">
-          <label for="date">Date</label>
-          <input type="date" id="date" [(ngModel)]="date">
-        </div>
-        <div class="input-group">
-          <label for="time">Time</label>
-          <input type="time" id="time" [(ngModel)]="time">
-        </div>
-        <div class="input-group">
-          <label for="guests">Guests</label>
-          <select id="guests" [(ngModel)]="guestCount">
-            <option *ngFor="let option of guestOptions" [value]="option">{{ option }}</option>
-          </select>
-        </div>
-        <div class="input-group">
-          <label for="cuisine">Cuisine</label>
-          <select id="cuisine" [(ngModel)]="cuisine">
-            <option *ngFor="let option of cuisineOptions" [value]="option">{{ option }}</option>
-          </select>
-        </div>
-        <button class="search-btn" (click)="findRestaurants()">Find Restaurants</button>
-      </section>
+  <!-- Add Restaurant Buttons -->
+<div class="container text-center py-2">
+  <h1
+    class="display-5 mb-3 animated slideInDown"
+    style="color: #ffffff; background-color: #0f172b; border: 4px solid #fea116;"
+  >
+    Add Restaurant To Your Trip
+  </h1>
+  <div class="button-group">
+    <button class="add-btn" (click)="toggleManualRestaurant()" style="border: 2px solid #0f172b">
+      Add Manually
+    </button>
+    <button class="add-btn" (click)="toggleSearchRestaurant()" style="border: 2px solid #fea116; margin-left: 10px;">
+      Search Restaurant
+    </button>
+  </div>
+</div>
 
-    <section class="restaurant-results">
-        <div *ngFor="let restaurant of restaurantResults" class="result">
-            <img [src]="restaurant.image" alt="Restaurant Image" class="restaurant-image">
-            <div class="restaurant-details">
-                <h3>{{ restaurant.name }}</h3>
-                <p>Location: {{ restaurant.location }}</p>
-                <p>Cuisine: {{ restaurant.cuisine }} | {{ restaurant.price }} | ⭐️ {{ restaurant.rating }}</p>
-                <p>Features: {{ restaurant.features }}</p>
-            </div>
-            <button class="book-btn" (click)="reserveTable(restaurant)">Add Restaurant</button>
-        </div>
-    </section>
 
+  <!-- Search Restaurant Panel -->
+  <section class="search-panel" *ngIf="showSearchRestaurant && !manualRestaurantVisible">
+
+    <div class="input-group">
+      <label for="location">Location</label>
+      <input type="text" id="location" placeholder="City or Area" [(ngModel)]="location">
+    </div>
+    <div class="input-group">
+      <label for="date">Date</label>
+      <input type="date" id="date" [(ngModel)]="date">
+    </div>
+    <div class="input-group">
+      <label for="time">Time</label>
+      <input type="time" id="time" [(ngModel)]="time">
+    </div>
+    <div class="input-group">
+      <label for="guests">Guests</label>
+      <select id="guests" [(ngModel)]="guestCount">
+        <option *ngFor="let option of guestOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <label for="cuisine">Cuisine</label>
+      <select id="cuisine" [(ngModel)]="cuisine">
+        <option *ngFor="let option of cuisineOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+    <button class="search-btn" (click)="findRestaurants()">Find Restaurants</button>
+  </section>
+
+  <!-- Restaurant Results -->
+  <section class="restaurant-results" *ngIf="restaurantResults.length && !hideSearchResults">
+    <div *ngFor="let restaurant of restaurantResults" class="result">
+      <img [src]="restaurant.image" alt="Restaurant Image" class="restaurant-image">
+      <div class="restaurant-details">
+        <h3>{{ restaurant.name }}</h3>
+        <p>Location: {{ restaurant.location }}</p>
+        <p>Cuisine: {{ restaurant.cuisine }} | {{ restaurant.price }} | ⭐️ {{ restaurant.rating }}</p>
+        <p>Features: {{ restaurant.features }}</p>
+      </div>
+      <button class="book-btn" (click)="addRestaurant(restaurant)">Add Restaurant</button>
+    </div>
+  </section>
+
+  <!-- Manual Add Restaurant Form -->
+  <form *ngIf="manualRestaurantVisible" class="trip-form shadow p-4 rounded mt-4">
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label">Restaurant Name</label>
+        <input type="text" class="form-control" [(ngModel)]="restaurant.name" name="name" placeholder="e.g. Tandoori Palace">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Location</label>
+        <input type="text" class="form-control" [(ngModel)]="restaurant.location" name="location" placeholder="e.g. Delhi, India">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Cuisine</label>
+        <input type="text" class="form-control" [(ngModel)]="restaurant.cuisine" name="cuisine" placeholder="e.g. Indian, Chinese">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Rating</label>
+        <select class="form-control" [(ngModel)]="restaurant.rating" name="rating">
+          <option selected disabled>Select Rating</option>
+          <option>3.5</option>
+          <option>4.0</option>
+          <option>4.5</option>
+          <option>5.0</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Price</label>
+        <input type="text" class="form-control" [(ngModel)]="restaurant.price" name="price" placeholder="e.g. ₹1000 for 2">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Features</label>
+        <input type="text" class="form-control" [(ngModel)]="restaurant.features" name="features" placeholder="e.g. Live music, Rooftop">
+      </div>
+      <div class="col-md-12">
+        <label class="form-label">Image URL</label>
+        <input type="text" class="form-control" [(ngModel)]="restaurant.image" name="image" placeholder="e.g. assets/img/restaurant1.jpg">
+      </div>
+      <div class="col-12 text-center">
+        <button class="btn btn-primary px-5 py-2" (click)="submitRestaurant()">Submit</button>
+      </div>
+    </div>
+  </form>
 </div>
