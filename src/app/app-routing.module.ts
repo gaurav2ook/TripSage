@@ -22,6 +22,7 @@ import { BookingPageComponent } from './components/booking-page/booking-page.com
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { MybookingsComponent } from './components/mybookings/mybookings.component';
 import { DeletePackageComponent } from './components/adminpackage/delete-package/delete-package.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -62,5 +63,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }]
 })
 export class AppRoutingModule {}
